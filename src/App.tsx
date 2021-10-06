@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
+import TextField from './TextField'
 
-function App() {
-   return <div className="App"></div>
+const App: React.FC = () => {
+   return (
+      <div className="App">
+         <TextField name="Josh" />
+      </div>
+   )
 }
 
 export default App
