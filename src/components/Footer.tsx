@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
    min-height: 7rem;
-   color: darkgrey;
+   color: grey;
+   background: lightgrey;
    text-align: center;
 `
 
