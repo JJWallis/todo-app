@@ -5,8 +5,9 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 const BodyWrapper = styled.div`
+   display: flex;
+   flex-direction: column;
    min-height: 100vh;
-   background-color: red;
 `
 
 const App: React.FC = () => {

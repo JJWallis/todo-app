@@ -1,5 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
+import lightBg from '../assets/bg-mobile-light.jpg'
+// import darkBG from ‘../assets/bg-mobile-dark.jpg’
 
-export default function Header() {
-   return <div></div>
-}
+const StyledHeader = styled.header`
+   min-height: 17rem;
+   background-image: url(${lightBg});
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+`
+
+const Header: React.FC = () => <StyledHeader />
+
+export default Header
