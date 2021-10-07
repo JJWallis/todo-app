@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import lightBg from '../assets/bg-mobile-light.jpg'
+import lightBg from '../assets/bg-desktop-light.jpg'
 // import darkBG from ‘../assets/bg-mobile-dark.jpg’
 
 const StyledHeader = styled.header`
