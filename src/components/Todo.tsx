@@ -4,7 +4,7 @@ import cross from '../assets/icon-cross.svg'
 
 const CrossIcon = styled.img`
    position: absolute;
-   right: 5%;
+   right: 75px;
    top: 50%;
    transform: translateY(-50%);
    display: block;
@@ -17,7 +17,7 @@ const StyledTodo = styled.li`
    background-color: white;
    border-bottom: 0.5px solid lightgrey;
    list-style: none;
-   padding: 0;
+   padding: 0 0 0 3.5rem;
    margin: 0;
    padding-block: 1rem;
    position: relative;
