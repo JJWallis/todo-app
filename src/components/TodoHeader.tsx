@@ -1,13 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import SpaceBetween from './SpaceBetween'
 import ThemeToggle from './ThemeToggle'
-
-const StyledTodoHeader = styled.div`
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-`
 
 const Title = styled.h1`
    color: white;
@@ -16,10 +10,10 @@ const Title = styled.h1`
 
 const TodoHeader: React.FC = () => {
    return (
-      <StyledTodoHeader>
+      <SpaceBetween>
          <Title>TODO</Title>
          <ThemeToggle />
-      </StyledTodoHeader>
+      </SpaceBetween>
    )
 }
 

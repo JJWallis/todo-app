@@ -14,7 +14,7 @@ const StyledTodoWrapper = styled.div`
    width: 90%;
    max-width: 600px;
    position: absolute;
-   top: 10%;
+   top: 5%;
    left: 50%;
    transform: translateX(-50%);
 `

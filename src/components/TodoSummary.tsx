@@ -1,13 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const FlexWrapper = styled.div`
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   background-color: white;
-   padding-inline: 1rem;
-`
+import SpaceBetween from './SpaceBetween'
 
 const ItemsLeft = styled.p`
    color: grey;
@@ -26,10 +19,10 @@ const Completed = styled.button`
 
 const TodoSummary: React.FC = () => {
    return (
-      <FlexWrapper>
+      <SpaceBetween secondary>
          <ItemsLeft>5 items left</ItemsLeft>
          <Completed>Clear Completed</Completed>
-      </FlexWrapper>
+      </SpaceBetween>
    )
 }
 
