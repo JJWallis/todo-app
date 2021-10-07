@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TodoHeader from './TodoHeader'
 import TodoInput from './TodoInput'
+import TodoList from './TodoList'
 
 const StyledMain = styled.main`
    flex-grow: 1;
@@ -22,6 +23,7 @@ const Main: React.FC = () => (
       <StyledTodoWrapper>
          <TodoHeader />
          <TodoInput />
+         <TodoList />
       </StyledTodoWrapper>
    </StyledMain>
 )
