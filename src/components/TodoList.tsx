@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo'
 
-function TodoList() {
+const TodoList: React.FC = () => {
    return <div></div>
 }
 
