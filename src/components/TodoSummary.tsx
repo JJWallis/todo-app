@@ -4,7 +4,8 @@ import SpaceBetween from './SpaceBetween'
 import Button from './Button'
 
 const ItemsLeft = styled.p`
-   color: grey;
+   color: ${(props) => props.theme.fcTodoFtr};
+   transition: color 200ms linear;
    font-size: 0.8rem;
 `
 

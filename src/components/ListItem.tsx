@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components'
 
-type ListItemProps = {
-   todo?: boolean
-   darkMode?: boolean
-}
+type ListItemProps = { todo?: boolean }
 
 const ListItem = styled.li<ListItemProps>`
    list-style: none;
@@ -13,8 +10,9 @@ const ListItem = styled.li<ListItemProps>`
       props.todo &&
       css`
          width: 100%;
-         background-color: white;
-         border-bottom: 0.5px solid lightgrey;
+         background-color: ${(props) => props.theme.colorFg};
+         transition: background-color 200ms linear;
+         border-bottom: 0.1px solid ${(props) => props.theme.fcTodo};
          padding: 1rem 0.7rem;
          margin: 0;
          position: relative;

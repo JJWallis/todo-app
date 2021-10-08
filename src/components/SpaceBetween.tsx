@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components'
 
-type FlexProps = {
-   secondary?: boolean
-   darkMode?: boolean
-}
+type FlexProps = { secondary?: boolean }
 
 const FlexContainer = styled.div<FlexProps>`
    display: flex;
@@ -13,7 +10,8 @@ const FlexContainer = styled.div<FlexProps>`
    ${(props) =>
       props.secondary &&
       css`
-         background-color: white;
+         background-color: ${(props) => props.theme.colorFg};
+         transition: background-color 200ms linear;
          padding-inline: 1rem;
       `}
 `

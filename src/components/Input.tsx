@@ -25,6 +25,9 @@ const Input = styled.input<InputProps>`
          padding-block: 1.2rem;
          outline: none;
          border: none;
+         color: ${(props) => props.theme.fcTodo};
+         background-color: ${(props) => props.theme.colorFg};
+         transition: background-color 200ms linear, color 200ms linear;
       `}
 `
 

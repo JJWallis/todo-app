@@ -6,13 +6,12 @@ import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import TodoFooter from './TodoFooter'
 
-type MainProps = {
-   darkMode?: boolean
-}
+type MainProps = {}
 
 const StyledMain = styled.main<MainProps>`
    flex-grow: 1;
    background-color: ${(props) => props.theme.colorBg};
+   transition: background-color 200ms linear;
 `
 
 const Main: React.FC = () => (

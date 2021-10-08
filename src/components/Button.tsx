@@ -9,10 +9,11 @@ const Button = styled.button<BtnProps>`
    border: none;
    outline: none;
    cursor: pointer;
+   color: ${(props) => props.theme.fcTodoFtr};
+   transition: color 200ms linear;
    ${(props) =>
       props.summary &&
       css`
-         color: grey;
          padding-block: 1rem;
          font-size: 0.8rem;
       `}
