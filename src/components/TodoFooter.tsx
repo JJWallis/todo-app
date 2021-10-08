@@ -1,26 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
 import List from './List'
 import Button from './Button'
-
-const Li = styled.li`
-   list-style: none;
-   padding: 0;
-   margin: 0 10px;
-`
+import ListItem from './ListItem'
 
 const TodoFooter: React.FC = () => {
    return (
       <List footer>
-         <Li>
+         <ListItem>
             <Button>All</Button>
-         </Li>
-         <Li>
+         </ListItem>
+         <ListItem>
             <Button>Active</Button>
-         </Li>
-         <Li>
+         </ListItem>
+         <ListItem>
             <Button>Completed</Button>
-         </Li>
+         </ListItem>
       </List>
    )
 }

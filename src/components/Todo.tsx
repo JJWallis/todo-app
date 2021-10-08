@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import ListItem from './ListItem'
 import cross from '../assets/icon-cross.svg'
 
 const CrossIcon = styled.img`
@@ -12,23 +13,12 @@ const CrossIcon = styled.img`
    cursor: pointer;
 `
 
-const StyledTodo = styled.li`
-   width: 100%;
-   background-color: white;
-   border-bottom: 0.5px solid lightgrey;
-   list-style: none;
-   padding: 0 0 0 3.5rem;
-   margin: 0;
-   padding-block: 1rem;
-   position: relative;
-`
-
 const Todo: React.FC = () => {
    return (
-      <StyledTodo>
+      <ListItem todo>
          Test todo
          <CrossIcon src={cross} />
-      </StyledTodo>
+      </ListItem>
    )
 }
 
