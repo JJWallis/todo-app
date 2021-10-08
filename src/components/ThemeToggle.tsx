@@ -7,13 +7,15 @@ import moon from '../assets/icon-moon.svg'
 
 const Label = styled.label`
    display: block;
+   position: relative;
+   cursor: pointer;
    outline: 2px solid white;
 `
 
 const ThemeToggle: React.FC = () => {
    return (
-      <Label aria-label="Theme switcher toggle.">
-         <Input type="checkbox" />
+      <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
+         <Input checkbox id="theme-switch" type="checkbox" />
          <Icon src={moon} />
       </Label>
    )
