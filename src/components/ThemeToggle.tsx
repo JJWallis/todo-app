@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { Context } from '../App'
 import styled from 'styled-components'
 import Input from './Input'
 import Icon from './Icon'
@@ -13,6 +14,9 @@ const Label = styled.label`
 
 const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState<boolean>(false)
+   const determineTheme = useContext(Context)
+   // useEffect() - each time theme state changes it runs func above
+   // with theme state value
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
