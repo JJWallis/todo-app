@@ -11,7 +11,7 @@ const Input = styled.input<InputProps>`
    ${(props) =>
       props.checkbox &&
       css`
-         opacity: 0.5;
+         opacity: 0;
          position: absolute;
          inset: 0;
          margin: auto;

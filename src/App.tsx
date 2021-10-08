@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
