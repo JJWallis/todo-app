@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 type BtnProps = {
-   summary?: boolean
+   summary?: 'true'
 }
 
 const Button = styled.button<BtnProps>`

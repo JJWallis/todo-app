@@ -12,7 +12,7 @@ const TodoSummary: React.FC = () => {
    return (
       <SpaceBetween secondary>
          <ItemsLeft>5 items left</ItemsLeft>
-         <Button summary>Clear Completed</Button>
+         <Button summary="true">Clear Completed</Button>
       </SpaceBetween>
    )
 }
