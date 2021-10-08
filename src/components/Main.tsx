@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Wrapper from './Wrapper'
 import TodoHeader from './TodoHeader'
 import TodoInput from './TodoInput'
 import TodoList from './TodoList'
@@ -10,23 +11,14 @@ const StyledMain = styled.main`
    background: lightgrey;
 `
 
-const StyledTodoWrapper = styled.div`
-   width: 90%;
-   max-width: 600px;
-   position: absolute;
-   top: 5%;
-   left: 50%;
-   transform: translateX(-50%);
-`
-
 const Main: React.FC = () => (
    <StyledMain>
-      <StyledTodoWrapper>
+      <Wrapper todos>
          <TodoHeader />
          <TodoInput />
          <TodoList />
          <TodoFooter />
-      </StyledTodoWrapper>
+      </Wrapper>
    </StyledMain>
 )
 

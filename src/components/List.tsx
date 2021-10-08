@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 type ListProps = {
    footer?: boolean
+   darkMode?: boolean
 }
 
 const List = styled.ul<ListProps>`

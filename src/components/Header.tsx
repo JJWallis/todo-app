@@ -1,9 +1,12 @@
-import React from 'react'
 import styled from 'styled-components'
 import lightBg from '../assets/bg-desktop-light.jpg'
 // import darkBG from ‘../assets/bg-mobile-dark.jpg’
 
-const StyledHeader = styled.header`
+type HeaderProps = {
+   darkMode?: boolean
+}
+
+const StyledHeader = styled.header<HeaderProps>`
    min-height: 17rem;
    background-image: url(${lightBg});
    background-repeat: no-repeat;
@@ -11,6 +14,4 @@ const StyledHeader = styled.header`
    background-size: cover;
 `
 
-const Header: React.FC = () => <StyledHeader />
-
-export default Header
+export default StyledHeader

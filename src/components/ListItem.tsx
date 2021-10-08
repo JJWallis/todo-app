@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 type ListItemProps = {
    todo?: boolean
+   darkMode?: boolean
 }
 
 const ListItem = styled.li<ListItemProps>`
@@ -14,7 +15,7 @@ const ListItem = styled.li<ListItemProps>`
          width: 100%;
          background-color: white;
          border-bottom: 0.5px solid lightgrey;
-         padding: 1rem 3.5rem;
+         padding: 1rem 0.7rem;
          margin: 0;
          position: relative;
       `}

@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledFooter = styled.footer`
+type FooterProps = {
+   darkMode?: boolean
+}
+
+const StyledFooter = styled.footer<FooterProps>`
    min-height: 7rem;
    color: grey;
    background: lightgrey;
