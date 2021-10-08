@@ -6,6 +6,7 @@ type WrapperProps = {
 }
 
 const Wrapper = styled.div<WrapperProps>`
+   font-family: ${(props) => props.theme.fontFamily};
    ${(props) =>
       props.body &&
       css`

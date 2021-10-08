@@ -6,7 +6,12 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 const lightTheme = {
+   fontFamily: 'Josefin Sans',
    colorBg: 'hsl(236, 33%, 92%)',
+}
+
+const darkTheme = {
+   colorBg: 'hsl(235, 21%, 11%)',
 }
 
 const App: React.FC = () => {
