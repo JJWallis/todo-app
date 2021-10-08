@@ -1,13 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import List from './List'
-
-const Button = styled.button`
-   background-color: transparent;
-   border: none;
-   outline: none;
-   cursor: pointer;
-`
+import Button from './Button'
 
 const Li = styled.li`
    list-style: none;
