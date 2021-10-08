@@ -12,7 +12,7 @@ type MainProps = {
 
 const StyledMain = styled.main<MainProps>`
    flex-grow: 1;
-   background-color: lightgrey;
+   background-color: ${(props) => props.theme.colorBg};
 `
 
 const Main: React.FC = () => (

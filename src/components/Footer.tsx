@@ -8,7 +8,7 @@ type FooterProps = {
 const StyledFooter = styled.footer<FooterProps>`
    min-height: 7rem;
    color: grey;
-   background: lightgrey;
+   background-color: ${(props) => props.theme.colorBg};
    text-align: center;
 `
 
