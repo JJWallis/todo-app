@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
@@ -11,20 +11,21 @@ const lightTheme = {
 }
 
 const darkTheme = {
+   fontFamily: 'Josefin Sans',
    colorBg: 'hsl(235, 21%, 11%)',
 }
 
 export const Context: any = React.createContext({})
 
 const App: React.FC = () => {
-   const determineTheme = (light: boolean) => (light ? darkTheme : lightTheme)
-   // param as ThemeToggle state
-   // render returned value to theme prop below
-   // by updating local state here holds theme obj of usrs choice (toggles between them)
+   const [activeTheme, setActiveTheme] = useState<any>(lightTheme)
+
+   const determineTheme = (light: boolean) =>
+      setActiveTheme(light ? darkTheme : lightTheme)
 
    return (
       <Context.Provider value={determineTheme}>
-         <ThemeProvider theme={lightTheme}>
+         <ThemeProvider theme={activeTheme}>
             <Wrapper body>
                <Header />
                <Main />
