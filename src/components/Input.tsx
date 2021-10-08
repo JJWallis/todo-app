@@ -22,7 +22,8 @@ const Input = styled.input<InputProps>`
          opacity: 1;
          width: 100%;
          border-radius: 5px;
-         padding-block: 1.2rem;
+         padding: 1.2rem 4rem;
+         margin-top: 1rem;
          outline: none;
          border: none;
          color: ${(props) => props.theme.fcTodo};

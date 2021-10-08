@@ -12,7 +12,7 @@ const Icon = styled.img<IconProps>`
       props.cross &&
       css`
          position: absolute;
-         right: 40px;
+         right: 20px;
          top: 50%;
          transform: translateY(-50%);
          width: 20px;
