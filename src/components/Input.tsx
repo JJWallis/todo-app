@@ -28,6 +28,9 @@ const Input = styled.input<InputProps>`
          color: ${(props) => props.theme.fcTodo};
          background-color: ${(props) => props.theme.colorFg};
          transition: background-color 200ms linear, color 200ms linear;
+         ::placeholder {
+            color: ${(props) => props.theme.fcTodo};
+         }
       `}
 `
 

@@ -10,6 +10,7 @@ const ListItem = styled.li<ListItemProps>`
       props.todo &&
       css`
          width: 100%;
+         color: ${(props) => props.theme.fcTodo};
          background-color: ${(props) => props.theme.colorFg};
          transition: background-color 200ms linear;
          border-bottom: 0.1px solid ${(props) => props.theme.fcTodo};
