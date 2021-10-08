@@ -6,9 +6,13 @@ import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import TodoFooter from './TodoFooter'
 
-const StyledMain = styled.main`
+type MainProps = {
+   darkMode?: boolean
+}
+
+const StyledMain = styled.main<MainProps>`
    flex-grow: 1;
-   background: lightgrey;
+   background-color: lightgrey;
 `
 
 const Main: React.FC = () => (

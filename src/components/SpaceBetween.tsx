@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 type FlexProps = {
    secondary?: boolean
+   darkMode?: boolean
 }
 
 const FlexContainer = styled.div<FlexProps>`
