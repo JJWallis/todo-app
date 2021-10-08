@@ -16,7 +16,7 @@ const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState<boolean>(false)
    const determineTheme: any = useContext(Context)
 
-   useEffect(() => determineTheme(theme), [theme])
+   useEffect(() => determineTheme(theme)) // need to do here?
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
