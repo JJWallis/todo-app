@@ -15,3 +15,5 @@ const Todo: React.FC = () => {
 }
 
 export default Todo
+
+// useEffect() - clear any added event listeners in case Todo removed

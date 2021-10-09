@@ -14,9 +14,10 @@ const Label = styled.label`
 
 const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState<boolean>(false)
-   const determineTheme: any = useContext(Context)
+   const context: any = useContext(Context)
+   const determineTheme = context.themeChange
 
-   useEffect(() => determineTheme(theme)) // need to do here?
+   useEffect(() => determineTheme(theme))
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">

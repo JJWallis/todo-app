@@ -33,12 +33,13 @@ export const Context: any = React.createContext(null)
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState<object>(lightTheme)
+   const [todos, setTodos] = useState<any>([])
 
    const determineTheme = (light: boolean) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
    return (
-      <Context.Provider value={determineTheme}>
+      <Context.Provider value={{ themeChange: determineTheme, todos: todos }}>
          <ThemeProvider theme={activeTheme}>
             <Wrapper body>
                <Header />
@@ -51,3 +52,6 @@ const App: React.FC = () => {
 }
 
 export default App
+
+// pass down todos to TodoList - map over arr to render all Todos + summary of them
+// callback func to update Todos arr passed down to TodoInput

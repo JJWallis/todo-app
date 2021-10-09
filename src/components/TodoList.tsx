@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../App'
 import List from './List'
-import Todo from './Todo'
 import TodoSummary from './TodoSummary'
 
 const TodoList: React.FC = () => {
+   const context = useContext<any>(Context)
+   const todos = context.todos
+
    return (
       <List>
-         <Todo />
+         {/* {...todos} */}
          <TodoSummary />
       </List>
    )
