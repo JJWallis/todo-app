@@ -21,7 +21,7 @@ const ThemeToggle: React.FC = () => {
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
          <Input
-            checkbox
+            checkboxTheme
             checked={theme}
             id="theme-switch"
             type="checkbox"

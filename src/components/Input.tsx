@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components'
 
 type InputProps = {
    newTodo?: boolean
-   checkbox?: boolean
-   darkMode?: boolean
+   checkboxTheme?: boolean
+   checkboxTodo?: boolean
 }
 
 const Input = styled.input<InputProps>`
    cursor: pointer;
    ${(props) =>
-      props.checkbox &&
+      props.checkboxTheme &&
       css`
          opacity: 0;
          position: absolute;
@@ -17,8 +17,17 @@ const Input = styled.input<InputProps>`
          margin: auto;
       `}
    ${(props) =>
+      props.checkboxTodo &&
+      css`
+         position: absolute;
+         z-index: 3;
+         top: 85px;
+         left: 20px;
+      `}
+   ${(props) =>
       props.newTodo &&
       css`
+         position: relative;
          opacity: 1;
          width: 100%;
          border-radius: 5px;
