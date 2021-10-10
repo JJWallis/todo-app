@@ -4,11 +4,16 @@ import Input from './Input'
 import Icon from './Icon'
 import cross from '../assets/icon-cross.svg'
 
-const Todo: React.FC = () => {
+interface Props {
+   id: string
+   value: string
+}
+
+const Todo: React.FC<Props> = ({ value }) => {
    return (
       <ListItem todo>
          <Input type="checkbox" />
-         Test todo
+         {value}
          <Icon cross src={cross} />
       </ListItem>
    )
