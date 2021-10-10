@@ -15,7 +15,10 @@ const TodoSummary: React.FC = () => {
 
    return (
       <SpaceBetween secondary>
-         <ItemsLeft>{context.todos.length} items left</ItemsLeft>
+         <ItemsLeft>
+            {context.todos.length}
+            {context.todos.length === 1 ? ' item' : ' items'} left
+         </ItemsLeft>
          <Button summary="true">Clear Completed</Button>
       </SpaceBetween>
    )

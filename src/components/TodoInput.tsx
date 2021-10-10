@@ -11,8 +11,10 @@ const TodoInput: React.FC = () => {
    const [newTodo, setNewTodo] = useState<boolean>(false)
 
    useEffect(() => {
-      newTodo && addTodo(<Todo id={uuidv4()} key={uuidv4()} value={usrInput} />)
-      // Reset input to empty str + checkbox to false via refs
+      if (usrInput !== '')
+         addTodo(<Todo id={uuidv4()} key={uuidv4()} value={usrInput} />)
+      setUsrInput('')
+      setNewTodo(false)
    }, [newTodo])
 
    return (

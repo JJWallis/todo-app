@@ -34,7 +34,6 @@ export const Context: any = React.createContext(null)
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState<object>(lightTheme)
    const [todos, setTodos] = useState<any>([])
-   console.log(todos)
 
    const determineTheme = (light: boolean) =>
       setActiveTheme(light ? darkTheme : lightTheme)
