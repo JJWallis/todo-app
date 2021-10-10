@@ -5,11 +5,10 @@ import TodoSummary from './TodoSummary'
 
 const TodoList: React.FC = () => {
    const context = useContext<any>(Context)
-   const todos = context.todos
 
    return (
       <List>
-         {/* {...todos} */}
+         {context.todos}
          <TodoSummary />
       </List>
    )

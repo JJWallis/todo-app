@@ -9,7 +9,7 @@ const TodoInput: React.FC = () => {
 
    // useEffect() when addTodo changed - runs callback func passed (creates a new <Todo /> with all info)
    // to update Todos state in App
-   // Reset input to empty str via ref
+   // Reset input to empty str + checkbox to false via refs
 
    return (
       <React.Fragment>
