@@ -6,6 +6,7 @@ import lightBg from './assets/bg-desktop-light.jpg'
 import darkBG from './assets/bg-desktop-dark.jpg'
 import Main from './components/Main'
 import Footer from './components/Footer'
+export const Context: any = React.createContext(null)
 
 const lightTheme = {
    fontFamily: 'Josefin Sans',
@@ -29,17 +30,39 @@ const darkTheme = {
    // hsl(236, 33%, 92%) - hover
 }
 
-export const Context: any = React.createContext(null)
+interface AppState {
+   todos: {
+      id: string
+      key: string
+      value: string
+   }[]
+   todo: {
+      id: string
+      key: string
+      value: string
+   }
+   activeTheme: {
+      // type instead?
+      fontFamily: string
+      colorBg: string
+      colorFg: string
+      fcSummary: string
+      fcTodo: string
+      fcTodoFtr: string
+      hdrBgImg: string
+   }
+}
 
 const App: React.FC = () => {
-   const [activeTheme, setActiveTheme] = useState<object>(lightTheme)
-   const [todos, setTodos] = useState<any>([])
+   const [activeTheme, setActiveTheme] =
+      useState<AppState['activeTheme']>(lightTheme)
+   const [todos, setTodos] = useState<AppState['todos']>([])
    console.log(todos)
 
    const determineTheme = (light: boolean) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
-   const addTodo = (todo: any) => setTodos([...todos, todo])
+   const addTodo = (todo: AppState['todo']) => setTodos([...todos, todo])
 
    return (
       <Context.Provider
