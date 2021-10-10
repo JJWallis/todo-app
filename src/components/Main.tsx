@@ -6,9 +6,7 @@ import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import TodoFooter from './TodoFooter'
 
-type MainProps = {}
-
-const StyledMain = styled.main<MainProps>`
+const StyledMain = styled.main`
    flex-grow: 1;
    background-color: ${(props) => props.theme.colorBg};
    transition: background-color 200ms linear;

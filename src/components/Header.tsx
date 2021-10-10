@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-type HeaderProps = {}
-
-const StyledHeader = styled.header<HeaderProps>`
+const StyledHeader = styled.header`
    min-height: 17rem;
    background-image: url(${(props) => props.theme.hdrBgImg});
    background-repeat: no-repeat;

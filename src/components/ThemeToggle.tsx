@@ -13,7 +13,7 @@ const Label = styled.label`
 `
 
 const ThemeToggle: React.FC = () => {
-   const [theme, setTheme] = useState<boolean>(false)
+   const [theme, setTheme] = useState(false)
    const context: any = useContext(Context)
    const determineTheme = context.themeChange
 

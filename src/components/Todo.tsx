@@ -6,11 +6,12 @@ import cross from '../assets/icon-cross.svg'
 
 interface Props {
    id: string
+   key: string
    value: string
 }
 
 const Todo: React.FC<Props> = ({ value }) => {
-   const [finished, setFinished] = useState<boolean>(false)
+   const [finished, setFinished] = useState(false)
 
    return (
       <ListItem todo>

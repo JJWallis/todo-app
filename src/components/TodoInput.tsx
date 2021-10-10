@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from 'uuid'
 const TodoInput: React.FC = () => {
    const context: any = useContext(Context)
    const addTodo = context.addTodo
-   const [usrInput, setUsrInput] = useState<string>('')
-   const [newTodo, setNewTodo] = useState<boolean>(false)
+   const [usrInput, setUsrInput] = useState('')
+   const [newTodo, setNewTodo] = useState(false)
 
    useEffect(() => {
       if (usrInput !== '')
