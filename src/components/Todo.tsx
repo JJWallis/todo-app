@@ -9,7 +9,7 @@ interface Props {
    id: string
    key: string
    value: string
-   isCompleted: boolean
+   // isCompleted: boolean
 }
 
 const Todo: React.FC<Props> = ({ value, id }) => {

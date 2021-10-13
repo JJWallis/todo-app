@@ -18,7 +18,7 @@ const TodoInput: React.FC = () => {
                id={uuidv4()}
                key={uuidv4()}
                value={usrInput}
-               isCompleted={false}
+               // isCompleted={}
             />
          )
       setUsrInput('')

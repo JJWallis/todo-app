@@ -52,6 +52,7 @@ const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
+   // whenever app state changes to true - causes all to be true (not specifc)
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
@@ -64,13 +65,13 @@ const App: React.FC = () => {
    }
 
    const handleCompletedTodo = (id: string) => {
-      const nonCompletedTodos = todos.filter(
-         (todo: any) => todo.props.id !== id
-      )
-      const completedTodo: any = todos.find((todo: any) => todo.props.id === id)
-      completedTodo.props.isCompleted = !completedTodo.props.isCompleted
-      const finalTodos = [completedTodo, ...nonCompletedTodos] // added 1st - order issue!
-      setTodos(finalTodos)
+      // const nonCompletedTodos = todos.filter(
+      //    (todo: any) => todo.props.id !== id
+      // )
+      // const completedTodo: any = todos.find((todo: any) => todo.props.id === id)
+      // completedTodo.props.isCompleted = !completedTodo.props.isCompleted
+      // const finalTodos = [completedTodo, ...nonCompletedTodos] // added 1st - order issue!
+      // setTodos(finalTodos)
    }
 
    return (
