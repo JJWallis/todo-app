@@ -5,7 +5,7 @@ import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
 
 export interface TodoInputState {
-   isTodoCompleted: (completed: boolean) => boolean
+   updateCompleted: (completed: boolean) => void
 }
 
 const TodoInput: React.FC = () => {
@@ -15,8 +15,7 @@ const TodoInput: React.FC = () => {
 
    const addTodo: AppState['addTodo'] = context.addTodo
 
-   const isTodoCompleted: TodoInputState['isTodoCompleted'] = (completed) =>
-      completed ? true : false
+   // callback from App -takes id + find() method to find Todo to toggle isCompleted prop on (false as default value below)
 
    useEffect(() => {
       if (usrInput !== '')
@@ -25,8 +24,7 @@ const TodoInput: React.FC = () => {
                id={uuidv4()}
                key={uuidv4()}
                value={usrInput}
-               isTodoCompleted={isTodoCompleted}
-               // func returning boolean depeding on local todo completed state
+               isCompleted={false}
             />
          )
       setUsrInput('')

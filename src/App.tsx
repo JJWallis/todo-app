@@ -46,6 +46,7 @@ export interface AppState {
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
+   handleCompletedTodo: (id: string) => void
 }
 
 const App: React.FC = () => {
@@ -64,6 +65,14 @@ const App: React.FC = () => {
       setTodos(newTodos)
    }
 
+   const handleCompletedTodo = (id: string) => {
+      const nonCompleted = todos.filter((todo: any) => todo.props.id !== id)
+      const completedTodo: any = todos.find((todo: any) => todo.props.id === id)
+      completedTodo.props.isCompleted = true
+      const finalTodos = [...nonCompleted, completedTodo]
+      setTodos(finalTodos) // check loggic + type check + pass via context
+   }
+
    return (
       <Context.Provider
          value={{
@@ -71,6 +80,7 @@ const App: React.FC = () => {
             todos: todos,
             addTodo: addTodo,
             handleRemoveTodo: handleRemoveTodo,
+            handleCompletedTodo: handleCompletedTodo,
          }}
       >
          <ThemeProvider theme={activeTheme}>

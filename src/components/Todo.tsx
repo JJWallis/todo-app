@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppState, Context } from '../App'
-import { TodoInputState } from './TodoInput'
 import ListItem from './ListItem'
 import Input from './Input'
 import Icon from './Icon'
@@ -10,12 +9,21 @@ interface Props {
    id: string
    key: string
    value: string
-   isTodoCompleted: TodoInputState['isTodoCompleted']
+   isCompleted: boolean
+}
+
+interface Completed {
+   handleCompletedTodo: AppState['handleCompletedTodo']
 }
 
 const Todo: React.FC<Props> = ({ value, id }) => {
    const [finished, setFinished] = useState(false)
    const context = useContext(Context)
+   const handleCompletedTodo = context.handleCompletedTodo
+
+   useEffect(() => finished && handleCompletedTodo(id), [finished])
+   // dont want on mount
+
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
 
