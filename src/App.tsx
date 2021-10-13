@@ -46,14 +46,12 @@ export interface AppState {
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
-   handleCompletedTodo: (id: string) => void
 }
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
-   // console.log(todos)
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
@@ -66,11 +64,13 @@ const App: React.FC = () => {
    }
 
    const handleCompletedTodo = (id: string) => {
-      const nonCompleted = todos.filter((todo: any) => todo.props.id !== id)
+      const nonCompletedTodos = todos.filter(
+         (todo: any) => todo.props.id !== id
+      )
       const completedTodo: any = todos.find((todo: any) => todo.props.id === id)
-      completedTodo.props.isCompleted = true
-      const finalTodos = [...nonCompleted, completedTodo]
-      setTodos(finalTodos) // check loggic + type check + pass via context
+      completedTodo.props.isCompleted = !completedTodo.props.isCompleted
+      const finalTodos = [completedTodo, ...nonCompletedTodos] // added 1st - order issue!
+      setTodos(finalTodos)
    }
 
    return (

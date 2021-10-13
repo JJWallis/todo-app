@@ -12,17 +12,13 @@ interface Props {
    isCompleted: boolean
 }
 
-interface Completed {
-   handleCompletedTodo: AppState['handleCompletedTodo']
-}
-
 const Todo: React.FC<Props> = ({ value, id }) => {
    const [finished, setFinished] = useState(false)
    const context = useContext(Context)
    const handleCompletedTodo = context.handleCompletedTodo
 
    useEffect(() => finished && handleCompletedTodo(id), [finished])
-   // dont want on mount
+   // dont want on mount - only able to change from false to true
 
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
