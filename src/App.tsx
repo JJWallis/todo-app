@@ -49,23 +49,26 @@ export interface AppState {
    handleRemoveTodo: (id: string) => void
 }
 
-const LOCALSTORAGEKEY = uuidv4()
+const LOCAL_STORAGE_KEY = uuidv4()
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
 
-   useEffect(() => {
-      localStorage.setItem(LOCALSTORAGEKEY, JSON.stringify(todos))
-   }, [todos])
+   useEffect(
+      () => localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)),
+      [todos]
+   )
 
-   // useEffect(() => {
-   //    if (todos) {
-   //       const updatedTodos: any = localStorage.getItem(LOCALSTORAGEKEY)
-   //       setTodos(updatedTodos)
-   //    }
-   // }, [])
+   useEffect(() => {
+      const storedTodos = localStorage.getItem(LOCAL_STORAGE_KEY)
+      storedTodos && JSON.parse(storedTodos)
+      if (storedTodos) {
+         const todosL: any = storedTodos
+         // setTodos(todosL)
+      }
+   }, [])
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
