@@ -6,10 +6,6 @@ import Icon from './Icon'
 import moon from '../assets/icon-moon.svg'
 import sun from '../assets/icon-sun.svg'
 
-interface ThemeActions {
-   determineTheme: AppState['determineTheme']
-}
-
 const Label = styled.label`
    display: block;
    position: relative;
@@ -19,7 +15,7 @@ const Label = styled.label`
 const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState(false)
    const context: any = useContext(Context)
-   const determineTheme: ThemeActions['determineTheme'] = context.themeChange
+   const determineTheme: AppState['determineTheme'] = context.themeChange
 
    useEffect(() => determineTheme(theme))
 

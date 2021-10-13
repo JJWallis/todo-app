@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppState, Context } from '../App'
+import { TodoInputState } from './TodoInput'
 import ListItem from './ListItem'
 import Input from './Input'
 import Icon from './Icon'
@@ -9,6 +10,7 @@ interface Props {
    id: string
    key: string
    value: string
+   isTodoCompleted: TodoInputState['isTodoCompleted']
 }
 
 const Todo: React.FC<Props> = ({ value, id }) => {
@@ -16,8 +18,6 @@ const Todo: React.FC<Props> = ({ value, id }) => {
    const context = useContext(Context)
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
-
-   // useEffect() - clear any added event listeners in case Todo removed
 
    return (
       <ListItem todo>

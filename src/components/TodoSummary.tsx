@@ -4,10 +4,6 @@ import styled from 'styled-components'
 import SpaceBetween from './SpaceBetween'
 import Button from './Button'
 
-interface Todos {
-   todos: AppState['todos']
-}
-
 const ItemsLeft = styled.p`
    color: ${(props) => props.theme.fcTodoFtr};
    transition: color 200ms linear;
@@ -16,7 +12,7 @@ const ItemsLeft = styled.p`
 
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
-   const todos: Todos['todos'] = context.todos
+   const todos: AppState['todos'] = context.todos
 
    return (
       <SpaceBetween secondary>

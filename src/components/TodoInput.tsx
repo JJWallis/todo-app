@@ -4,15 +4,31 @@ import Input from './Input'
 import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
 
+export interface TodoInputState {
+   isTodoCompleted: (completed: boolean) => boolean
+}
+
 const TodoInput: React.FC = () => {
    const context: any = useContext(Context)
-   const addTodo: AppState['addTodo'] = context.addTodo
    const [usrInput, setUsrInput] = useState('')
    const [newTodo, setNewTodo] = useState(false)
 
+   const addTodo: AppState['addTodo'] = context.addTodo
+
+   const isTodoCompleted: TodoInputState['isTodoCompleted'] = (completed) =>
+      completed ? true : false
+
    useEffect(() => {
       if (usrInput !== '')
-         addTodo(<Todo id={uuidv4()} key={uuidv4()} value={usrInput} />)
+         addTodo(
+            <Todo
+               id={uuidv4()}
+               key={uuidv4()}
+               value={usrInput}
+               isTodoCompleted={isTodoCompleted}
+               // func returning boolean depeding on local todo completed state
+            />
+         )
       setUsrInput('')
       setNewTodo(false)
    }, [newTodo])
