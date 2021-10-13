@@ -10,7 +10,7 @@ const TodoList: React.FC = () => {
    return (
       <List>
          {context.todos.map((todo: any) => (
-            <Todo todo={todo} />
+            <Todo key={todo.key} todo={todo} />
          ))}
          <TodoSummary />
       </List>

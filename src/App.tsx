@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { v4 as uuidv4 } from 'uuid'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
 import lightBg from './assets/bg-desktop-light.jpg'
@@ -48,10 +49,23 @@ export interface AppState {
    handleRemoveTodo: (id: string) => void
 }
 
+const LOCALSTORAGEKEY = uuidv4()
+
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
+
+   useEffect(() => {
+      localStorage.setItem(LOCALSTORAGEKEY, JSON.stringify(todos))
+   }, [todos])
+
+   // useEffect(() => {
+   //    if (todos) {
+   //       const updatedTodos: any = localStorage.getItem(LOCALSTORAGEKEY)
+   //       setTodos(updatedTodos)
+   //    }
+   // }, [])
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
@@ -60,15 +74,13 @@ const App: React.FC = () => {
       setTodos((prevTodos) => [...prevTodos, todo])
 
    const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
-      const newTodos = todos.filter((todo: any) => todo.props.id !== id)
+      const newTodos = todos.filter((todo: any) => todo.id !== id)
       setTodos(newTodos)
    }
 
    const handleCompletedTodo = (id: string) => {
       const newTodos = [...todos]
-      const completedTodo: any = newTodos.find(
-         (todo: any) => todo.props.id === id
-      )
+      const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
       completedTodo.isCompleted = !completedTodo.isCompleted
       // no need to re-add - still targets original in data structure
       setTodos(newTodos)

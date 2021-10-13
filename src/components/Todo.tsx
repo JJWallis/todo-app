@@ -8,10 +8,10 @@ import cross from '../assets/icon-cross.svg'
 interface Props {
    todo: {
       id: string
-      key: string
       value: string
       isCompleted: boolean
    }
+   key: string
 }
 
 const Todo: React.FC<Props> = ({ todo }) => {
