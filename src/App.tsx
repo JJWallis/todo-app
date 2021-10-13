@@ -6,7 +6,7 @@ import lightBg from './assets/bg-desktop-light.jpg'
 import darkBG from './assets/bg-desktop-dark.jpg'
 import Main from './components/Main'
 import Footer from './components/Footer'
-export const Context: any = React.createContext(null)
+export const Context = React.createContext<any>(null)
 
 const lightTheme = {
    fontFamily: 'Josefin Sans',
@@ -30,39 +30,39 @@ const darkTheme = {
    // hsl(236, 33%, 92%) - hover
 }
 
-interface AppState {
-   todos: {
-      id: string
-      key: string
-      value: string
-   }[]
-   todo: {
-      id: string
-      key: string
-      value: string
-   }
-   activeTheme: {
-      // type instead?
-      fontFamily: string
-      colorBg: string
-      colorFg: string
-      fcSummary: string
-      fcTodo: string
-      fcTodoFtr: string
-      hdrBgImg: string
-   }
+interface Theme {
+   fontFamily: string
+   colorBg: string
+   colorFg: string
+   fcSummary: string
+   fcTodo: string
+   fcTodoFtr: string
+   hdrBgImg: string
+}
+
+export interface AppState {
+   todos: {}[]
+   activeTheme: Theme
+   determineTheme: (light: boolean) => void
+   addTodo: (todo: any) => void
+   handleRemoveTodo: (id: string) => void
 }
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
-   console.log(todos)
+   // console.log(todos)
 
-   const determineTheme = (light: boolean) =>
+   const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
-   const addTodo = (todo: AppState['todo']) => setTodos([...todos, todo])
+   const addTodo: AppState['addTodo'] = (todo) => setTodos([...todos, todo])
+
+   const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
+      const newTodos = todos.filter((todo: any) => todo.props.id !== id)
+      setTodos(newTodos)
+   }
 
    return (
       <Context.Provider
@@ -70,6 +70,7 @@ const App: React.FC = () => {
             themeChange: determineTheme,
             todos: todos,
             addTodo: addTodo,
+            handleRemoveTodo: handleRemoveTodo,
          }}
       >
          <ThemeProvider theme={activeTheme}>

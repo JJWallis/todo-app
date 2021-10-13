@@ -1,10 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Context } from '../App'
+import { AppState, Context } from '../App'
 import styled from 'styled-components'
 import Input from './Input'
 import Icon from './Icon'
 import moon from '../assets/icon-moon.svg'
 import sun from '../assets/icon-sun.svg'
+
+interface ThemeActions {
+   determineTheme: AppState['determineTheme']
+}
 
 const Label = styled.label`
    display: block;
@@ -15,7 +19,7 @@ const Label = styled.label`
 const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState(false)
    const context: any = useContext(Context)
-   const determineTheme = context.themeChange
+   const determineTheme: ThemeActions['determineTheme'] = context.themeChange
 
    useEffect(() => determineTheme(theme))
 

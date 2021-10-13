@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Context } from '../App'
+import { AppState, Context } from '../App'
 import Input from './Input'
 import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
 
 const TodoInput: React.FC = () => {
    const context: any = useContext(Context)
-   const addTodo = context.addTodo
+   const addTodo: AppState['addTodo'] = context.addTodo
    const [usrInput, setUsrInput] = useState('')
    const [newTodo, setNewTodo] = useState(false)
 

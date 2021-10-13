@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { AppState, Context } from '../App'
 import ListItem from './ListItem'
 import Input from './Input'
 import Icon from './Icon'
@@ -10,8 +11,13 @@ interface Props {
    value: string
 }
 
-const Todo: React.FC<Props> = ({ value }) => {
+const Todo: React.FC<Props> = ({ value, id }) => {
    const [finished, setFinished] = useState(false)
+   const context = useContext(Context)
+   const handleRemoveTodo: AppState['handleRemoveTodo'] =
+      context.handleRemoveTodo
+
+   // useEffect() - clear any added event listeners in case Todo removed
 
    return (
       <ListItem todo>
@@ -21,11 +27,9 @@ const Todo: React.FC<Props> = ({ value }) => {
             onChange={(e) => setFinished(e.target.checked)}
          />
          {value}
-         <Icon cross src={cross} />
+         <Icon cross src={cross} onClick={() => handleRemoveTodo(id)} />
       </ListItem>
    )
 }
 
 export default Todo
-
-// useEffect() - clear any added event listeners in case Todo removed
