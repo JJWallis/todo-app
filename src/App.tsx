@@ -41,7 +41,7 @@ interface Theme {
 }
 
 export interface AppState {
-   todos: {}[]
+   todos: {}[] // specify
    activeTheme: Theme
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
@@ -52,12 +52,12 @@ const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
-   // whenever app state changes to true - causes all to be true (not specifc)
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
-   const addTodo: AppState['addTodo'] = (todo) => setTodos([...todos, todo])
+   const addTodo: AppState['addTodo'] = (todo) =>
+      setTodos((prevTodos) => [...prevTodos, todo])
 
    const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
       const newTodos = todos.filter((todo: any) => todo.props.id !== id)
@@ -65,13 +65,13 @@ const App: React.FC = () => {
    }
 
    const handleCompletedTodo = (id: string) => {
-      // const nonCompletedTodos = todos.filter(
-      //    (todo: any) => todo.props.id !== id
-      // )
-      // const completedTodo: any = todos.find((todo: any) => todo.props.id === id)
-      // completedTodo.props.isCompleted = !completedTodo.props.isCompleted
-      // const finalTodos = [completedTodo, ...nonCompletedTodos] // added 1st - order issue!
-      // setTodos(finalTodos)
+      const newTodos = [...todos]
+      const completedTodo: any = newTodos.find(
+         (todo: any) => todo.props.id === id
+      )
+      completedTodo.isCompleted = !completedTodo.isCompleted
+      // no need to re-add - still targets original in data structure
+      setTodos(newTodos)
    }
 
    return (

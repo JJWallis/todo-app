@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppState, Context } from '../App'
 import Input from './Input'
-import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
 
 const TodoInput: React.FC = () => {
@@ -13,14 +12,12 @@ const TodoInput: React.FC = () => {
 
    useEffect(() => {
       if (usrInput !== '')
-         addTodo(
-            <Todo
-               id={uuidv4()}
-               key={uuidv4()}
-               value={usrInput}
-               // isCompleted={}
-            />
-         )
+         addTodo({
+            id: uuidv4(),
+            key: uuidv4(),
+            value: usrInput,
+            isCompleted: false,
+         })
       setUsrInput('')
       setNewTodo(false)
    }, [newTodo])

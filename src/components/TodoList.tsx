@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
+import Todo from './Todo'
 import List from './List'
 import TodoSummary from './TodoSummary'
 
@@ -8,7 +9,9 @@ const TodoList: React.FC = () => {
 
    return (
       <List>
-         {context.todos}
+         {context.todos.map((todo: any) => (
+            <Todo todo={todo} />
+         ))}
          <TodoSummary />
       </List>
    )
