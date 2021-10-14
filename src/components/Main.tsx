@@ -18,6 +18,7 @@ const Main: React.FC = () => (
          <TodoHeader />
          <TodoInput />
          <TodoList />
+         {/* nested TodoList with returned list within or via children prop */}
          <TodoFooter />
       </Wrapper>
    </StyledMain>
