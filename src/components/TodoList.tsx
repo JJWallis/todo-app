@@ -12,6 +12,10 @@ const TodoList: React.FC = () => {
          {context.todos.map((todo: any) => (
             <Todo key={todo.key} todo={todo} />
          ))}
+         {/* sep component - fragment wrapper + Todo map() above + props.children */}
+         {/* this componet controls content passed to it  */}
+         {/* or - App func which returns corresponding version of list usr desires */}
+         {/* dynamically render above */}
          <TodoSummary />
       </List>
    )
