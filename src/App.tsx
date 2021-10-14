@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { v4 as uuidv4 } from 'uuid'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
 import lightBg from './assets/bg-desktop-light.jpg'
@@ -8,6 +7,13 @@ import darkBG from './assets/bg-desktop-dark.jpg'
 import Main from './components/Main'
 import Footer from './components/Footer'
 export const Context = React.createContext<any>(null)
+export interface AppState {
+   todos: {}[] // specify
+   activeTheme: Theme
+   determineTheme: (light: boolean) => void
+   addTodo: (todo: any) => void
+   handleRemoveTodo: (id: string) => void
+}
 
 const lightTheme = {
    fontFamily: 'Josefin Sans',
@@ -41,34 +47,22 @@ interface Theme {
    hdrBgImg: string
 }
 
-export interface AppState {
-   todos: {}[] // specify
-   activeTheme: Theme
-   determineTheme: (light: boolean) => void
-   addTodo: (todo: any) => void
-   handleRemoveTodo: (id: string) => void
-}
-
-const LOCAL_STORAGE_KEY = uuidv4()
+const LOCAL_STORAGE_KEY = 'todos'
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
       useState<AppState['activeTheme']>(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
 
+   useEffect(() => {
+      const storedTodos = localStorage.getItem(LOCAL_STORAGE_KEY)
+      storedTodos && setTodos(JSON.parse(storedTodos))
+   }, [])
+
    useEffect(
       () => localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)),
       [todos]
    )
-
-   useEffect(() => {
-      const storedTodos = localStorage.getItem(LOCAL_STORAGE_KEY)
-      storedTodos && JSON.parse(storedTodos)
-      if (storedTodos) {
-         const todosL: any = storedTodos
-         // setTodos(todosL)
-      }
-   }, [])
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
@@ -85,7 +79,7 @@ const App: React.FC = () => {
       const newTodos = [...todos]
       const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
       completedTodo.isCompleted = !completedTodo.isCompleted
-      // no need to re-add - still targets original in data structure
+      // find() still targets original in data structure
       setTodos(newTodos)
    }
 
