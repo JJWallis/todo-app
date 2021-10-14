@@ -11,7 +11,9 @@ const ItemsLeft = styled.p`
 `
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
-   const todos: AppState['todos'] = context.todos
+   const todos: AppState['todos'] = context.todos.filter(
+      (todo: any) => !todo.invisible
+   )
    const handleClearCompleted: AppState['handleClearCompleted'] =
       context.handleClearCompleted
 
