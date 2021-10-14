@@ -6,7 +6,9 @@ import lightBg from './assets/bg-desktop-light.jpg'
 import darkBG from './assets/bg-desktop-dark.jpg'
 import Main from './components/Main'
 import Footer from './components/Footer'
+
 export const Context = React.createContext<any>(null)
+
 export interface AppState {
    todos: {
       id: string
@@ -34,6 +36,7 @@ const lightTheme = {
    fcTodo: 'hsl(235, 19%, 35%)',
    fcTodoFtr: 'hsl(236, 9%, 61%)',
    hdrBgImg: lightBg,
+   hover: 'hsl(237, 14%, 26%)',
 }
 
 const darkTheme = {
@@ -44,8 +47,7 @@ const darkTheme = {
    fcTodo: 'hsl(234, 39%, 85%)',
    fcTodoFtr: 'hsl(233, 14%, 35%)',
    hdrBgImg: darkBG,
-   // hsl(237, 14%, 26%)
-   // hsl(236, 33%, 92%) - hover
+   hover: 'hsl(236, 33%, 92%)',
 }
 
 interface Theme {
@@ -58,7 +60,7 @@ interface Theme {
    hdrBgImg: string
 }
 
-const LOCAL_STORAGE_KEY = 'todos'
+const LOCAL_STORAGE_TODOS_KEY = 'todos'
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] =
@@ -66,12 +68,13 @@ const App: React.FC = () => {
    const [todos, setTodos] = useState<AppState['todos']>([])
 
    useEffect(() => {
-      const storedTodos = localStorage.getItem(LOCAL_STORAGE_KEY)
+      const storedTodos = localStorage.getItem(LOCAL_STORAGE_TODOS_KEY)
       storedTodos && setTodos(JSON.parse(storedTodos))
    }, [])
 
    useEffect(
-      () => localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos)),
+      () =>
+         localStorage.setItem(LOCAL_STORAGE_TODOS_KEY, JSON.stringify(todos)),
       [todos]
    )
 

@@ -11,6 +11,9 @@ const Button = styled.button<BtnProps>`
    cursor: pointer;
    color: ${(props) => props.theme.fcTodoFtr};
    transition: color 200ms linear;
+   :hover {
+      color: ${(props) => props.theme.hover};
+   }
    ${(props) =>
       props.summary &&
       css`
