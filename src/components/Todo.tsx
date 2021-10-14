@@ -10,11 +10,15 @@ interface Props {
       id: string
       value: string
       isCompleted: boolean
+      invisible: boolean
    }
    key: string
 }
 
 const Todo: React.FC<Props> = ({ todo }) => {
+   // callback func in App will return filtered() version + turn invisible to true + update state with that
+   // each time btn clicked - refresh styles by turning all invislbe props to false (+ then use that copy of state to create desired one)
+
    const context = useContext(Context)
 
    const handleCompletedTodo = context.handleCompletedTodo
@@ -23,7 +27,7 @@ const Todo: React.FC<Props> = ({ todo }) => {
       context.handleRemoveTodo
 
    return (
-      <ListItem todo>
+      <ListItem todo invisible={todo.invisible}>
          <Input
             type="checkbox"
             checked={todo.isCompleted}

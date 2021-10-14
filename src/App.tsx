@@ -8,12 +8,16 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 export const Context = React.createContext<any>(null)
 export interface AppState {
-   todos: {}[] // specify
+   todos: {}[]
    activeTheme: Theme
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
    handleClearCompleted: () => void
+   handleTodosVisibility: (
+      active?: string | undefined,
+      completed?: string | undefined
+   ) => void
 }
 
 const lightTheme = {
@@ -91,6 +95,19 @@ const App: React.FC = () => {
       setTodos(nonCompletedTodos)
    }
 
+   const handleTodosVisibility = (active?: string, completed?: string) => {
+      const newTodos: AppState['todos'] = [...todos].map(
+         (todo: any) => (todo.invisible = false)
+      )
+
+      if (active) {
+         const completedTodos: AppState['todos'] = newTodos
+            .filter((todo: any) => todo.isCompleted)
+            .map((todo: any) => (todo.invisible = true))
+         setTodos(completedTodos)
+      }
+   }
+
    return (
       <Context.Provider
          value={{
@@ -100,6 +117,7 @@ const App: React.FC = () => {
             handleRemoveTodo: handleRemoveTodo,
             handleCompletedTodo: handleCompletedTodo,
             handleClearCompleted: handleClearCompleted,
+            handleTodosVisibility: handleTodosVisibility,
          }}
       >
          <ThemeProvider theme={activeTheme}>

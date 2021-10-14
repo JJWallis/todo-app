@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-type ListItemProps = { todo?: boolean }
+type ListItemProps = { todo?: boolean; invisible?: boolean }
 
 const ListItem = styled.li<ListItemProps>`
    list-style: none;
@@ -17,6 +17,11 @@ const ListItem = styled.li<ListItemProps>`
          padding: 1rem 0.7rem;
          margin: 0;
          position: relative;
+      `}
+   ${(props) =>
+      props.invisible &&
+      css`
+         display: none;
       `}
 `
 

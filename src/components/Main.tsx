@@ -12,16 +12,17 @@ const StyledMain = styled.main`
    transition: background-color 200ms linear;
 `
 
-const Main: React.FC = () => (
-   <StyledMain>
-      <Wrapper todos>
-         <TodoHeader />
-         <TodoInput />
-         <TodoList />
-         {/* nested TodoList with returned list within or via children prop */}
-         <TodoFooter />
-      </Wrapper>
-   </StyledMain>
-)
+const Main: React.FC = () => {
+   return (
+      <StyledMain>
+         <Wrapper todos>
+            <TodoHeader />
+            <TodoInput />
+            <TodoList />
+            <TodoFooter />
+         </Wrapper>
+      </StyledMain>
+   )
+}
 
 export default Main

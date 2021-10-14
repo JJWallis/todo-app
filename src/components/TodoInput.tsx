@@ -17,6 +17,7 @@ const TodoInput: React.FC = () => {
             key: uuidv4(),
             value: usrInput,
             isCompleted: false,
+            invisible: false,
          })
       setUsrInput('')
       setNewTodo(false)

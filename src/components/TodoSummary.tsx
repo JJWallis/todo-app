@@ -9,7 +9,6 @@ const ItemsLeft = styled.p`
    transition: color 200ms linear;
    font-size: 0.8rem;
 `
-
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
    const todos: AppState['todos'] = context.todos
