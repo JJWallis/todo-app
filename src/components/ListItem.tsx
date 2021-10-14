@@ -19,10 +19,13 @@ const ListItem = styled.li<ListItemProps>`
          position: relative;
       `}
    ${(props) =>
-      props.invisible &&
-      css`
-         display: none;
-      `}
+      props.invisible
+         ? css`
+              display: none;
+           `
+         : css`
+              display: block;
+           `}
 `
 
 export default ListItem

@@ -8,7 +8,13 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 export const Context = React.createContext<any>(null)
 export interface AppState {
-   todos: {}[]
+   todos: {
+      id: string
+      key: string
+      value: string
+      isCompleted: boolean
+      invisible: boolean
+   }[]
    activeTheme: Theme
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
@@ -96,15 +102,20 @@ const App: React.FC = () => {
    }
 
    const handleTodosVisibility = (active?: string, completed?: string) => {
-      const newTodos: AppState['todos'] = [...todos].map(
-         (todo: any) => (todo.invisible = false)
-      )
+      const newTodos: any = [...todos]
+      for (const todo of newTodos) todo.invisible = false
+      // refactor - refreshStyles func
 
       if (active) {
-         const completedTodos: AppState['todos'] = newTodos
-            .filter((todo: any) => todo.isCompleted)
-            .map((todo: any) => (todo.invisible = true))
-         setTodos(completedTodos)
+         for (const todo of newTodos)
+            if (todo.isCompleted) todo.invisible = !todo.invisible
+         setTodos(newTodos)
+      } else if (completed) {
+         for (const todo of newTodos)
+            if (!todo.isCompleted) todo.invisible = !todo.invisible
+         setTodos(newTodos)
+      } else {
+         setTodos(newTodos)
       }
    }
 
