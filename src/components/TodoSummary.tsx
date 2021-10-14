@@ -13,6 +13,8 @@ const ItemsLeft = styled.p`
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
    const todos: AppState['todos'] = context.todos
+   const handleClearCompleted: AppState['handleClearCompleted'] =
+      context.handleClearCompleted
 
    return (
       <SpaceBetween secondary>
@@ -20,7 +22,9 @@ const TodoSummary: React.FC = () => {
             {todos.length}
             {todos.length === 1 ? ' item' : ' items'} left
          </ItemsLeft>
-         <Button summary="true">Clear Completed</Button>
+         <Button summary="true" onClick={handleClearCompleted}>
+            Clear Completed
+         </Button>
       </SpaceBetween>
    )
 }

@@ -13,6 +13,7 @@ export interface AppState {
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
+   handleClearCompleted: () => void
 }
 
 const lightTheme = {
@@ -79,8 +80,15 @@ const App: React.FC = () => {
       const newTodos = [...todos]
       const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
       completedTodo.isCompleted = !completedTodo.isCompleted
-      // find() still targets original in data structure
       setTodos(newTodos)
+   }
+
+   const handleClearCompleted = () => {
+      const newTodos = [...todos]
+      const nonCompletedTodos = newTodos.filter(
+         (todo: any) => !todo.isCompleted
+      )
+      setTodos(nonCompletedTodos)
    }
 
    return (
@@ -91,6 +99,7 @@ const App: React.FC = () => {
             addTodo: addTodo,
             handleRemoveTodo: handleRemoveTodo,
             handleCompletedTodo: handleCompletedTodo,
+            handleClearCompleted: handleClearCompleted,
          }}
       >
          <ThemeProvider theme={activeTheme}>
