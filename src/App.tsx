@@ -37,7 +37,7 @@ const lightTheme = {
    fcTodoFtr: 'hsl(236, 9%, 61%)',
    hdrBgImg: lightBg,
    hover: 'hsl(237, 14%, 26%)',
-   active: 'hsl(220, 98%, 61%)', // boolean prop to determine
+   active: 'hsl(220, 98%, 61%)',
 }
 
 const darkTheme = {
@@ -109,7 +109,6 @@ const App: React.FC = () => {
    const handleTodosVisibility = (active?: string, completed?: string) => {
       const newTodos: any = [...todos]
       for (const todo of newTodos) todo.invisible = false
-      // refactor - refreshStyles func
 
       if (active) {
          for (const todo of newTodos)

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import List from './List'
 import Button from './Button'
 import ListItem from './ListItem'

@@ -5,12 +5,13 @@ type ListProps = {
 }
 
 const List = styled.ul<ListProps>`
+   max-height: 405px;
+   overflow-y: scroll;
    width: 100%;
    border-radius: 5px;
    padding: 0;
    margin: 0;
    margin-top: 1rem;
-   overflow: hidden;
    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
    background-color: ${(props) => props.theme.colorFg};
    transition: background-color 200ms linear;

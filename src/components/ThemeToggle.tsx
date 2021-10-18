@@ -11,13 +11,23 @@ const Label = styled.label`
    position: relative;
    cursor: pointer;
 `
+const LOCAL_STORAGE_THEME_KEY = 'theme'
 
 const ThemeToggle: React.FC = () => {
    const [theme, setTheme] = useState(false)
    const context: any = useContext(Context)
    const determineTheme: AppState['determineTheme'] = context.themeChange
 
-   useEffect(() => determineTheme(theme))
+   useEffect(() => {
+      const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
+      storedTheme && setTheme(JSON.parse(storedTheme))
+      determineTheme(theme)
+   }, [])
+
+   useEffect(() => {
+      localStorage.setItem(LOCAL_STORAGE_THEME_KEY, JSON.stringify(theme))
+      determineTheme(theme)
+   }, [theme])
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
