@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 type InputProps = {
+   addTodo?: boolean
    newTodo?: boolean
    checkboxTheme?: boolean
    checkboxTodo?: boolean
@@ -17,12 +18,20 @@ const Input = styled.input<InputProps>`
          margin: auto;
       `}
    ${(props) =>
-      props.checkboxTodo &&
+      props.addTodo &&
       css`
          position: absolute;
          z-index: 3;
          top: 85px;
-         left: 20px;
+         left: 21px;
+      `}
+   ${(props) =>
+      props.checkboxTodo &&
+      css`
+         position: absolute;
+         z-index: 3;
+         top: 17px;
+         left: 15px;
       `}
    ${(props) =>
       props.newTodo &&

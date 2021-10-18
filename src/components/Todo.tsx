@@ -24,6 +24,7 @@ const Todo: React.FC<Props> = ({ todo }) => {
    return (
       <ListItem todo invisible={todo.invisible}>
          <Input
+            checkboxTodo
             type="checkbox"
             checked={todo.isCompleted}
             onChange={() => handleCompletedTodo(todo.id)}

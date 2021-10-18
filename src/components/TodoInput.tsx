@@ -26,7 +26,7 @@ const TodoInput: React.FC = () => {
    return (
       <React.Fragment>
          <Input
-            checkboxTodo
+            addTodo
             type="checkbox"
             checked={newTodo}
             onChange={(e) => setNewTodo(e.target.checked)}
