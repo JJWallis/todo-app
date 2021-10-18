@@ -22,7 +22,7 @@ const Todo: React.FC<Props> = ({ todo }) => {
       context.handleRemoveTodo
 
    return (
-      <ListItem todo invisible={todo.invisible}>
+      <ListItem todo invisible={todo.invisible} completed={todo.isCompleted}>
          <Input
             checkboxTodo
             type="checkbox"

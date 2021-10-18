@@ -37,6 +37,7 @@ const lightTheme = {
    fcTodoFtr: 'hsl(236, 9%, 61%)',
    hdrBgImg: lightBg,
    hover: 'hsl(237, 14%, 26%)',
+   active: 'hsl(220, 98%, 61%)', // boolean prop to determine
 }
 
 const darkTheme = {
@@ -48,6 +49,7 @@ const darkTheme = {
    fcTodoFtr: 'hsl(233, 14%, 35%)',
    hdrBgImg: darkBG,
    hover: 'hsl(236, 33%, 92%)',
+   active: 'hsl(220, 98%, 61%)',
 }
 
 interface Theme {

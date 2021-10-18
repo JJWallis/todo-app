@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 
-type ListItemProps = { todo?: boolean; invisible?: boolean }
+type ListItemProps = {
+   todo?: boolean
+   invisible?: boolean
+   completed?: boolean
+}
 
 const ListItem = styled.li<ListItemProps>`
    list-style: none;
@@ -15,7 +19,7 @@ const ListItem = styled.li<ListItemProps>`
          background-color: ${(props) => props.theme.colorFg};
          transition: background-color 200ms linear;
          border-bottom: 0.1px solid ${(props) => props.theme.fcTodo};
-         padding: 1rem 3rem;
+         padding: 1rem 3.5rem;
          margin: 0;
          position: relative;
          &::before {
@@ -23,14 +27,18 @@ const ListItem = styled.li<ListItemProps>`
             display: block;
             position: absolute;
             top: 11px;
-            left: 10px;
+            left: 9px;
             width: 15px;
             height: 15px;
             border-radius: 50%;
             padding: 1rem;
-            border: 0.01px solid black;
+            border: 1px solid ${(props) => props.theme.fcTodo};
             z-index: 2;
-         }
+            background-image: ${(props) =>
+               props.completed &&
+               css`
+                  linear-gradient(360deg, hsl(280, 87%, 65%), hsl(192, 100%, 67%));
+               `}
       `}
    ${(props) =>
       props.invisible
