@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Tick from '../assets/icon-check.svg'
 
 type ListItemProps = {
    todo?: boolean
@@ -22,23 +23,32 @@ const ListItem = styled.li<ListItemProps>`
          padding: 1rem 3.5rem;
          margin: 0;
          position: relative;
-         &::before {
+         ${(props) =>
+            !props.invisible &&
+            css`
+          &::before {
             content: '';
-            display: block;
             position: absolute;
             top: 11px;
-            left: 9px;
+            left: 11px;
             width: 15px;
             height: 15px;
             border-radius: 50%;
             padding: 1rem;
             border: 1px solid ${(props) => props.theme.fcTodo};
             z-index: 2;
-            background-image: ${(props) =>
+            transition: background-size 200ms ease-in;
+            ${(props) =>
                props.completed &&
                css`
-                  linear-gradient(360deg, hsl(280, 87%, 65%), hsl(192, 100%, 67%));
+                  background-image: linear-gradient(
+                        360deg,
+                        hsl(280, 87%, 65%),
+                        hsl(192, 100%, 67%)
+                     ),
+                     url(${Tick});
                `}
+         `}
       `}
    ${(props) =>
       props.invisible

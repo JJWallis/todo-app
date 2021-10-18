@@ -32,6 +32,7 @@ const Input = styled.input<InputProps>`
          z-index: 3;
          top: 17px;
          left: 15px;
+         opacity: 0;
       `}
    ${(props) =>
       props.newTodo &&
