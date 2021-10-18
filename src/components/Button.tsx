@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 type BtnProps = {
    summary?: 'true'
+   active?: boolean
 }
 
 const Button = styled.button<BtnProps>`
@@ -14,6 +15,11 @@ const Button = styled.button<BtnProps>`
    :hover {
       color: ${(props) => props.theme.hover};
    }
+   ${(props) =>
+      props.active &&
+      css`
+         color: ${(props) => props.theme.active};
+      `}
    ${(props) =>
       props.summary &&
       css`

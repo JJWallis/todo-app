@@ -18,7 +18,7 @@ const ListItem = styled.li<ListItemProps>`
          color: ${(props) => props.theme.fcTodo};
          background-color: ${(props) => props.theme.colorFg};
          transition: background-color 200ms linear;
-         border-bottom: 0.1px solid ${(props) => props.theme.fcTodo};
+         border-bottom: 0.01px solid ${(props) => props.theme.fcTodo};
          padding: 1rem 3.5rem;
          margin: 0;
          position: relative;
