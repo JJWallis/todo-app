@@ -22,6 +22,7 @@ const ListItem = styled.li<ListItemProps>`
          padding: 1rem 3.5rem;
          margin: 0;
          position: relative;
+         cursor: move;
          &:hover::before {
             border-color: hsl(280, 87%, 65%);
          }

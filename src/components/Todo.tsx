@@ -22,7 +22,13 @@ const Todo: React.FC<Props> = ({ todo }) => {
       context.handleRemoveTodo
 
    return (
-      <ListItem todo invisible={todo.invisible} completed={todo.isCompleted}>
+      <ListItem
+         todo
+         invisible={todo.invisible}
+         completed={todo.isCompleted}
+         draggable="true"
+         // onDragStart
+      >
          <Input
             checkboxTodo
             type="checkbox"
