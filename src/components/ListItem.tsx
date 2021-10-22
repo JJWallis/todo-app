@@ -4,6 +4,8 @@ type ListItemProps = {
    todo?: boolean
    invisible?: boolean
    completed?: boolean
+   dragging?: boolean
+   ref?: any
 }
 
 const ListItem = styled.li<ListItemProps>`
@@ -26,6 +28,12 @@ const ListItem = styled.li<ListItemProps>`
          &:hover::before {
             border-color: hsl(280, 87%, 65%);
          }
+         ${(props) =>
+            props.dragging &&
+            css`
+               border: 2px solid hsl(280, 87%, 65%);
+               border-radius: 5px;
+            `}
          ${(props) =>
             !props.invisible &&
             css`

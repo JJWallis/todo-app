@@ -17,15 +17,18 @@ const TodoFooter: React.FC = () => {
       { name: 'active', active: false },
       { name: 'completed', active: false },
    ])
+   // model as 1 obj + keys as name keys with boolean values
    const context = useContext(Context)
    const handleTodosVisibility: AppState['handleTodosVisibility'] =
       context.handleTodosVisibility
 
    const handleVisibleTodos = (val: string) => {
       const visible = [...visibleTodos]
+      // spread operator for copy of 1 obj as well
       for (const btn of visible) btn.active = false
       const desired: any = visible.find(
          (btn: any) => btn.name === val.toLowerCase()
+         //access with bracket notation + below code in 1 line
       )
       desired.active = true
       setVisibleTodos(visible)
@@ -37,6 +40,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos[0].active}
                onClick={(e) => {
+                  // refactor into 1 func above - repeating 3 times (very similar)
                   handleTodosVisibility()
                   handleVisibleTodos((e.currentTarget.textContent = 'All'))
                }}

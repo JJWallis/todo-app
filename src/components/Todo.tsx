@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { AppState, Context } from '../App'
 import ListItem from './ListItem'
 import Input from './Input'
@@ -11,23 +11,36 @@ interface Props {
       value: string
       isCompleted: boolean
       invisible: boolean
+      dragging: boolean
    }
-   key: string
+   draggedTodo: (todo: any) => any
 }
 
-const Todo: React.FC<Props> = ({ todo }) => {
+const Todo: React.FC<Props> = ({ todo, draggedTodo }) => {
    const context = useContext(Context)
-   const handleCompletedTodo = context.handleCompletedTodo
+   const ref = useRef<any>()
+
+   const handleCompletedTodo: AppState['handleCompletedTodo'] =
+      context.handleCompletedTodo
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
+   const handleDragTodo: AppState['handleDragTodo'] = context.handleDragTodo
+
+   const dragStart = () => {
+      handleDragTodo(todo.id)
+      draggedTodo(ref)
+   }
 
    return (
       <ListItem
          todo
          invisible={todo.invisible}
          completed={todo.isCompleted}
+         dragging={todo.dragging}
          draggable="true"
-         // onDragStart
+         ref={ref}
+         onDragStart={dragStart}
+         onDragEnd={() => handleDragTodo(todo.id)}
       >
          <Input
             checkboxTodo

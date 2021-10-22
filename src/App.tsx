@@ -16,8 +16,8 @@ export interface AppState {
       value: string
       isCompleted: boolean
       invisible: boolean
+      dragging: boolean
    }[]
-   activeTheme: Theme
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
@@ -26,6 +26,8 @@ export interface AppState {
       active?: string | undefined,
       completed?: string | undefined
    ) => void
+   handleDragTodo: (id: string) => void
+   handleCompletedTodo: (id: string) => void
 }
 
 const lightTheme = {
@@ -52,21 +54,10 @@ const darkTheme = {
    active: 'hsl(220, 98%, 61%)',
 }
 
-interface Theme {
-   fontFamily: string
-   colorBg: string
-   colorFg: string
-   fcSummary: string
-   fcTodo: string
-   fcTodoFtr: string
-   hdrBgImg: string
-}
-
 const LOCAL_STORAGE_TODOS_KEY = 'todos'
 
 const App: React.FC = () => {
-   const [activeTheme, setActiveTheme] =
-      useState<AppState['activeTheme']>(lightTheme)
+   const [activeTheme, setActiveTheme] = useState(lightTheme)
    const [todos, setTodos] = useState<AppState['todos']>([])
 
    useEffect(() => {
@@ -80,6 +71,13 @@ const App: React.FC = () => {
       [todos]
    )
 
+   const handleDragTodo: AppState['handleDragTodo'] = (id) => {
+      const newTodos = [...todos]
+      const draggedTodo: any = newTodos.find((todo: any) => todo.id === id)
+      draggedTodo.dragging = !draggedTodo.dragging
+      setTodos(newTodos)
+   }
+
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
@@ -91,7 +89,7 @@ const App: React.FC = () => {
       setTodos(newTodos)
    }
 
-   const handleCompletedTodo = (id: string) => {
+   const handleCompletedTodo: AppState['handleCompletedTodo'] = (id) => {
       const newTodos = [...todos]
       const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
       completedTodo.isCompleted = !completedTodo.isCompleted
@@ -107,7 +105,7 @@ const App: React.FC = () => {
    }
 
    const handleTodosVisibility = (active?: string, completed?: string) => {
-      const newTodos: any = [...todos]
+      const newTodos = [...todos]
       for (const todo of newTodos) todo.invisible = false
 
       if (active) {
@@ -133,6 +131,7 @@ const App: React.FC = () => {
             handleCompletedTodo: handleCompletedTodo,
             handleClearCompleted: handleClearCompleted,
             handleTodosVisibility: handleTodosVisibility,
+            handleDragTodo: handleDragTodo,
          }}
       >
          <ThemeProvider theme={activeTheme}>
