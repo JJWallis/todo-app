@@ -83,7 +83,7 @@ const App: React.FC = () => {
 
    const addTodo: AppState['addTodo'] = (todo) =>
       setTodos((prevTodos) => [...prevTodos, todo])
-
+   // Change
    const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
       const newTodos = todos.filter((todo: any) => todo.id !== id)
       setTodos(newTodos)
