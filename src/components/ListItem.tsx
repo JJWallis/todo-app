@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import Tick from '../assets/icon-check.svg'
 
 type ListItemProps = {
    todo?: boolean
@@ -25,9 +26,6 @@ const ListItem = styled.li<ListItemProps>`
          margin: 0;
          position: relative;
          cursor: move;
-         &:hover::before {
-            border-color: hsl(280, 87%, 65%);
-         }
          ${(props) =>
             props.dragging &&
             css`
@@ -52,11 +50,14 @@ const ListItem = styled.li<ListItemProps>`
                ${(props) =>
                   props.completed &&
                   css`
-                     background-image: linear-gradient(
-                        360deg,
-                        hsl(280, 87%, 65%),
-                        hsl(192, 100%, 67%)
-                     );
+                     background: url(${Tick}),
+                        linear-gradient(
+                           360deg,
+                           hsl(280, 87%, 65%),
+                           hsl(192, 100%, 67%)
+                        );
+                     background-repeat: no-repeat;
+                     background-position: 90% 90%;
                   `}
             `}
       `}

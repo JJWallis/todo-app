@@ -5,7 +5,7 @@ type ListProps = {
 }
 
 const List = styled.ul<ListProps>`
-   max-height: 60vh;
+   max-height: 385px;
    overflow-y: scroll;
    width: 100%;
    border-radius: 5px;
