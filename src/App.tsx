@@ -26,7 +26,6 @@ export interface AppState {
       active?: string | undefined,
       completed?: string | undefined
    ) => void
-   handleDragTodo: (id: string) => void
    handleCompletedTodo: (id: string) => void
 }
 
@@ -70,13 +69,6 @@ const App: React.FC = () => {
          localStorage.setItem(LOCAL_STORAGE_TODOS_KEY, JSON.stringify(todos)),
       [todos]
    )
-
-   const handleDragTodo: AppState['handleDragTodo'] = (id) => {
-      const newTodos = [...todos]
-      const draggedTodo: any = newTodos.find((todo: any) => todo.id === id)
-      draggedTodo.dragging = !draggedTodo.dragging
-      setTodos(newTodos)
-   }
 
    const determineTheme: AppState['determineTheme'] = (light) =>
       setActiveTheme(light ? darkTheme : lightTheme)
@@ -131,7 +123,6 @@ const App: React.FC = () => {
             handleCompletedTodo: handleCompletedTodo,
             handleClearCompleted: handleClearCompleted,
             handleTodosVisibility: handleTodosVisibility,
-            handleDragTodo: handleDragTodo,
          }}
       >
          <ThemeProvider theme={activeTheme}>

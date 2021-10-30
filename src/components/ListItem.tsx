@@ -29,7 +29,7 @@ const ListItem = styled.li<ListItemProps>`
          ${(props) =>
             props.dragging &&
             css`
-               border: 2px solid hsl(280, 87%, 65%);
+               border: 1px solid hsl(280, 87%, 65%);
                border-radius: 5px;
             `}
          ${(props) =>
