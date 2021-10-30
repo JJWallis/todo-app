@@ -24,6 +24,7 @@ const Input = styled.input<InputProps>`
          z-index: 3;
          top: 85px;
          left: 21px;
+         opacity: 0;
       `}
    ${(props) =>
       props.checkboxTodo &&
