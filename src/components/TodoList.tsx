@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
+import { v4 as uuid } from 'uuid'
 import Todo from './Todo'
 import List from './List'
 import TodoSummary from './TodoSummary'
 
-interface DND {
+interface DnD {
    drop: React.DragEventHandler<HTMLUListElement> | undefined
    dragOver: React.DragEventHandler<HTMLUListElement> | undefined
 }
@@ -14,33 +15,28 @@ const TodoList: React.FC = () => {
 
    // id var - id of todo to move
    // getData() str arg - your own key (whatever you like - similar to local storage)
-   // display block to hide todo when picked up (so only 1 version on screen vs 2)
-   // appends todo to parent (e.target)
 
-   const drop: DND['drop'] = (e) => {
+   const drop: DnD['drop'] = (e) => {
       e.preventDefault()
-      const id = e.dataTransfer.getData('todo_id')
+      const id = e.dataTransfer.getData('todo-id')
       const todo = document.getElementById(id)
-      if (todo) {
-         todo.style.display = 'block'
-         e.currentTarget.appendChild(todo)
-      }
+      todo && e.currentTarget.append(todo)
    }
 
    // prevents dragging component from reverting back when release mouse
-   //
+   // called when let go of todo over list
 
-   const dragOver: DND['dragOver'] = (e) => {
-      e.preventDefault()
-   }
+   const dragOver: DnD['dragOver'] = (e) => e.preventDefault()
 
    return (
-      <List id={} onDrop={drop} onDragOver={dragOver}>
-         {context.todos.map((todo: any) => (
-            <Todo key={todo.key} todo={todo} />
-         ))}
+      <React.Fragment>
+         <List id={uuid()} onDrop={drop} onDragOver={dragOver}>
+            {context.todos.map((todo: any) => (
+               <Todo key={todo.key} todo={todo} />
+            ))}
+         </List>
          <TodoSummary />
-      </List>
+      </React.Fragment>
    )
 }
 

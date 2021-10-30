@@ -1,5 +1,6 @@
 import React, { useContext, useRef } from 'react'
 import { AppState, Context } from '../App'
+import { v4 as uuid } from 'uuid'
 import ListItem from './ListItem'
 import Input from './Input'
 import Icon from './Icon'
@@ -14,6 +15,11 @@ interface Props {
    }
 }
 
+interface DnD {
+   dragStart: React.DragEventHandler<HTMLLIElement> | undefined
+   dragOver: React.DragEventHandler<HTMLLIElement> | undefined
+}
+
 const Todo: React.FC<Props> = ({ todo }) => {
    const context = useContext(Context)
    const ref = useRef<any>()
@@ -23,15 +29,20 @@ const Todo: React.FC<Props> = ({ todo }) => {
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
 
+   const dragStart: DnD['dragStart'] = (e) => {
+      const target = e.currentTarget
+      e.dataTransfer.setData('todo-id', target.id)
+   }
+
    return (
       <ListItem
          todo
+         id={uuid()}
          invisible={todo.invisible}
          completed={todo.isCompleted}
          ref={ref}
          draggable="true"
-         // onDragStart={dragStart}
-         // onDragEnd={() => handleDragTodo(todo.id)}
+         onDragStart={dragStart}
       >
          <Input
             checkboxTodo
