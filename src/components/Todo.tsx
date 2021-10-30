@@ -11,7 +11,6 @@ interface Props {
       value: string
       isCompleted: boolean
       invisible: boolean
-      dragging: boolean
    }
 }
 
@@ -29,9 +28,8 @@ const Todo: React.FC<Props> = ({ todo }) => {
          todo
          invisible={todo.invisible}
          completed={todo.isCompleted}
-         dragging={todo.dragging}
-         draggable="true"
          ref={ref}
+         draggable="true"
          // onDragStart={dragStart}
          // onDragEnd={() => handleDragTodo(todo.id)}
       >

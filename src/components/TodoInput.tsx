@@ -18,7 +18,6 @@ const TodoInput: React.FC = () => {
             value: usrInput,
             isCompleted: false,
             invisible: false,
-            dragging: false,
          })
       setUsrInput('')
       setNewTodo(false)
