@@ -1,6 +1,6 @@
 # Frontend Mentor - Todo App solution
 
-This is a solution to the Todo App challenge on Frontend Mentor(https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
+This is a solution to the [Todo App challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
 ## Table of contents
 
