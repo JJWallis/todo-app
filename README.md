@@ -83,6 +83,8 @@ Organising components folder more (sub-folders)
 
 -  [Traversy Media - Styled Components Crash Course](https://www.youtube.com/watch?v=02zO0hZmwnw&t=945s&ab_channel=TraversyMedia) - structuring styled + logic-based components | naming conventions + ThemeProvider structure (nesting objs within parent to hold shared styles)
 
+-  [Web Dev Simplified - How to Build Sortable Drag & Drop](https://www.youtube.com/watch?v=jfYWwQrtzzY&t=582s&ab_channel=WebDevSimplified) - Dnd behaviour | needed to change className targetting + add local storage saving of order (saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point)
+
 ## Author
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)

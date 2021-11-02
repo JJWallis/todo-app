@@ -8,7 +8,7 @@ const List = styled.ul<ListProps>`
    max-height: 385px;
    overflow-y: scroll;
    width: 100%;
-   border-radius: 5px;
+   border-radius: 5px 5px 0 0;
    padding: 0;
    margin: 0;
    margin-top: 1rem;
@@ -24,6 +24,7 @@ const List = styled.ul<ListProps>`
          justify-content: center;
          align-items: center;
          padding: 1rem 0;
+         border-radius: 5px;
       `}
 `
 

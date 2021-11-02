@@ -13,6 +13,8 @@ const FlexContainer = styled.div<FlexProps>`
          background-color: ${(props) => props.theme.colorFg};
          transition: background-color 200ms linear;
          padding-inline: 1rem;
+         border-radius: 0 0 5px 5px;
+         border-top: 0.1px solid ${(props) => props.theme.hover};
       `}
 `
 
