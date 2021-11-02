@@ -6,31 +6,29 @@ import List from './List'
 import TodoSummary from './TodoSummary'
 
 interface DnD {
-   drop: React.DragEventHandler<HTMLUListElement> | undefined
    dragOver: React.DragEventHandler<HTMLUListElement> | undefined
 }
 
 const TodoList: React.FC = () => {
    const context = useContext<any>(Context)
 
-   // id var - id of todo to move
-   // getData() str arg - your own key (whatever you like - similar to local storage)
-
-   const drop: DnD['drop'] = (e) => {
+   const dragOver: DnD['dragOver'] = (e) => {
       e.preventDefault()
+      const parent = e.currentTarget
+      const afterElement = getDragAfterElement(parent, e.clientY)
       const id = e.dataTransfer.getData('todo-id')
       const todo = document.getElementById(id)
-      todo && e.currentTarget.append(todo)
+      todo && parent.append(todo)
    }
 
-   // prevents dragging component from reverting back when release mouse
-   // called when let go of todo over list
-
-   const dragOver: DnD['dragOver'] = (e) => e.preventDefault()
+   const getDragAfterElement = (container: any, y: any) => {
+      const draggableElements = [...container.querySelectorAll('.draggable')]
+      draggableElements.reduce((closest, child) => {}, 0)
+   }
 
    return (
       <React.Fragment>
-         <List id={uuid()} onDrop={drop} onDragOver={dragOver}>
+         <List onDragOver={dragOver} className="container">
             {context.todos.map((todo: any) => (
                <Todo key={todo.key} todo={todo} />
             ))}

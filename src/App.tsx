@@ -16,7 +16,6 @@ export interface AppState {
       value: string
       isCompleted: boolean
       invisible: boolean
-      dragging: boolean
    }[]
    determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void

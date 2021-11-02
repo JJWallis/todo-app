@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import { AppState, Context } from '../App'
 import { v4 as uuid } from 'uuid'
 import ListItem from './ListItem'
@@ -22,7 +22,6 @@ interface DnD {
 
 const Todo: React.FC<Props> = ({ todo }) => {
    const context = useContext(Context)
-   const ref = useRef<any>()
 
    const handleCompletedTodo: AppState['handleCompletedTodo'] =
       context.handleCompletedTodo
@@ -38,9 +37,9 @@ const Todo: React.FC<Props> = ({ todo }) => {
       <ListItem
          todo
          id={uuid()}
+         className="draggable"
          invisible={todo.invisible}
          completed={todo.isCompleted}
-         ref={ref}
          draggable="true"
          onDragStart={dragStart}
       >
