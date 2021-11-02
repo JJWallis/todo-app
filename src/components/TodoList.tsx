@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
-import { v4 as uuid } from 'uuid'
 import Todo from './Todo'
 import List from './List'
 import TodoSummary from './TodoSummary'
@@ -18,12 +17,29 @@ const TodoList: React.FC = () => {
       const afterElement = getDragAfterElement(parent, e.clientY)
       const id = e.dataTransfer.getData('todo-id')
       const todo = document.getElementById(id)
-      todo && parent.append(todo)
+      if (afterElement === null) {
+         todo && parent.append(todo) // last child fallback
+      } else {
+         todo && parent.insertBefore(todo, afterElement)
+      }
    }
 
    const getDragAfterElement = (container: any, y: any) => {
       const draggableElements = [...container.querySelectorAll('.draggable')]
-      draggableElements.reduce((closest, child) => {}, 0)
+      return draggableElements.reduce(
+         (closest, child) => {
+            const box = child.getBoundingClientRect()
+            const offset = y - box.top - box.height / 2
+            if (offset < 0 && offset > closest.offset) {
+               return { offset: offset, element: child }
+            } else {
+               return closest
+            }
+         },
+         {
+            offset: Number.NEGATIVE_INFINITY,
+         }
+      ).element
    }
 
    return (
