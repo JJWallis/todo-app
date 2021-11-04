@@ -116,12 +116,12 @@ const App: React.FC = () => {
       <Context.Provider
          value={{
             themeChange: determineTheme,
-            todos: todos,
-            addTodo: addTodo,
-            handleRemoveTodo: handleRemoveTodo,
-            handleCompletedTodo: handleCompletedTodo,
-            handleClearCompleted: handleClearCompleted,
-            handleTodosVisibility: handleTodosVisibility,
+            todos,
+            addTodo,
+            handleRemoveTodo,
+            handleCompletedTodo,
+            handleClearCompleted,
+            handleTodosVisibility,
          }}
       >
          <ThemeProvider theme={activeTheme}>

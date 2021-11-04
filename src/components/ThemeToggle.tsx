@@ -11,6 +11,7 @@ const Label = styled.label`
    position: relative;
    cursor: pointer;
 `
+
 const LOCAL_STORAGE_THEME_KEY = 'theme'
 
 const ThemeToggle: React.FC = () => {
@@ -22,12 +23,13 @@ const ThemeToggle: React.FC = () => {
       const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
       storedTheme && setTheme(JSON.parse(storedTheme))
       determineTheme(theme)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
    useEffect(() => {
       localStorage.setItem(LOCAL_STORAGE_THEME_KEY, JSON.stringify(theme))
       determineTheme(theme)
-   }, [theme])
+   }, [theme, determineTheme])
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">
