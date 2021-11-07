@@ -19,7 +19,7 @@ This is a solution to the [Todo App challenge on Frontend Mentor](https://www.fr
 
 ### The challenge
 
-Users should be able to:
+Your users should be able to:
 
 -  View the optimal layout for the app depending on their device's screen size
 -  See hover states for all interactive elements on the page
@@ -37,7 +37,6 @@ Users should be able to:
 
 ### Links
 
--  Solution URL:
 -  Live Site URL:
 
 ## My process
@@ -91,6 +90,12 @@ Organising components folder more (sub-folders)
 -  Linkedin - [Joshua Jameson-Wallis]()
 
 ###### TODO
+
+HTML:
+
+CSS:
+
+JS:
 
 Modelling with obj of info in App state vs directly setting as props in later component (not modifyable - readonly - for filtering logic) | map() over obj + produce component based on it (vs direct properties)
 
