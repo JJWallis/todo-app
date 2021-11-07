@@ -106,3 +106,5 @@ Removing todos - find(todoId) with App state arr vs remove() DOM method | same w
 Filter system - boolean prop of each todo (invisible) + when true toggled invisible (via Styled Components) | realise for future projects - gaining a diff version of State without modifying original important
 
 Layout issue with positioned content overlapping footer txt - max-height + overflow: scroll to fix
+
+Typescript basics - type, interfaces, where to declare return types + params | built in React types | Styled components use | library types (+ importing them)
