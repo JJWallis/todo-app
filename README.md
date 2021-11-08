@@ -43,7 +43,7 @@ Your users should be able to:
 
 ### Built with
 
--  React
+-  React - JS Library
 -  Typescript
 -  Mobile-first workflow
 -  Styled Components
