@@ -84,9 +84,9 @@ export interface AppState {
 }
 ```
 
-Typescript basics - type, interfaces, where to declare return types + params | built in React types | Styled components use | library types (+ importing them)
+This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us even needing to execute our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent us repeating ourself accross components. This became particulary important in React, since I constantly found myself using data that was already typed in the App componet within child components.
 
-Modelling with obj of info in App state vs directly setting as props in later component (not modifyable - readonly - for filtering logic) | map() over obj + produce component based on it (vs direct properties)
+Furthermore, as displayed above I decided to type and model each todo through an object of data about it, which contrasted to my original method of declaring this data via direct props when each todo was rendered (storing the Todo component itself within the App's state). I quickly realised these props were not able to be modified when modelling each todo in this way, which was an incredibly important feature to be able to achieve any of the base logic required.
 
 ```jsx
 const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
