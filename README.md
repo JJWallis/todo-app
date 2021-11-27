@@ -117,7 +117,7 @@ const dragOver: DnD['dragOver'] = (e) => {
 ```
 
 Drag + drop - appends as last child when drag anywhere (even over same el)
-Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?) | vanilla JS tutorial - React conversions needed
+Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?)| saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point
 
 ### Continued development
 
@@ -129,11 +129,11 @@ Organising components folder more (sub-folders) + not mixing into same file | mi
 
 ### Useful resources
 
--  [Web Dev Simplified - Learn React in 30 Minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY&t=1336s&ab_channel=WebDevSimplified) - Kyle's tutorial helped me tremendously (helping with toggling a todo completed)
+-  [Web Dev Simplified - Learn React in 30 Minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY&t=1336s&ab_channel=WebDevSimplified) - Kyle's tutorial helped me tremendously with the fundamental logic of a TODO list application modelled in React, since the framework requires a different methodology to achieving the same behaviour in vanilla JavaScript.
 
--  [Traversy Media - Styled Components Crash Course](https://www.youtube.com/watch?v=02zO0hZmwnw&t=945s&ab_channel=TraversyMedia) - structuring styled + logic-based components | naming conventions + ThemeProvider structure (nesting objs within parent to hold shared styles)
+-  [Traversy Media - Styled Components Crash Course](https://www.youtube.com/watch?v=02zO0hZmwnw&t=945s&ab_channel=TraversyMedia) - This crash course was my first introduction to using Styled Components, focusing on the syntax and major features to begin using the library in projects.
 
--  [Web Dev Simplified - How to Build Sortable Drag & Drop](https://www.youtube.com/watch?v=jfYWwQrtzzY&t=582s&ab_channel=WebDevSimplified) - Dnd behaviour | needed to change className targetting + add local storage saving of order (saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point)
+-  [Web Dev Simplified - How to Build Sortable Drag & Drop](https://www.youtube.com/watch?v=jfYWwQrtzzY&t=582s&ab_channel=WebDevSimplified) - This was another great tutorial by Kyle which helped me build the fundamental logic for the drag & drop behviour of the app. This was however originally built in vanilla JavaScript, so I was forced to modify the solution for the React framework, which greatly helped in ensuring I understood what was occuring behind the scenes.
 
 ## Author
 
