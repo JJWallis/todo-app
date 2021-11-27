@@ -53,20 +53,71 @@ Your users should be able to:
 ### What I learned
 
 ```jsx
-<h1>Some HTML code I'm proud of</h1>
-```
-
-```css
-.proud-of-this-css {
-   color: papayawhip;
+const lightTheme = {
+   fontFamily: 'Josefin Sans',
+   colorBg: 'hsl(236, 33%, 92%)',
+   colorFg: 'hsl(0, 0%, 98%)',
+   ...
 }
 ```
 
-```js
-const proudOfThisFunc = () => {
-   console.log('🎉')
+Styled Components - first project | Theme toggle with ThemeProvider vs vannila JS | store in local storage (checkbox state vs theme obj itself) | mixing up styled components + rendering them in same file - really bad (styled folder + naming convention)
+
+```jsx
+const List = styled.ul<ListProps>`
+   max-height: 385px;
+   overflow-y: scroll
+   ....
+```
+
+Negatively positioned header + main + ftr (todo list in normal flow) - viewport height wasn't responding when todo list itself positioned on top
+
+Layout issue with positioned content overlapping footer txt - max-height + overflow: scroll to fix
+
+```jsx
+export interface AppState {
+   todos: {
+      id: string
+      key: string
+      value: string
+      isCompleted: boolean
+      invisible: boolean
+   }[]
 }
 ```
+
+Typescript basics - type, interfaces, where to declare return types + params | built in React types | Styled components use | library types (+ importing them)
+
+Modelling with obj of info in App state vs directly setting as props in later component (not modifyable - readonly - for filtering logic) | map() over obj + produce component based on it (vs direct properties)
+
+```jsx
+const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
+   const newTodos = todos.filter((todo: any) => todo.id !== id)
+   setTodos(newTodos)
+}
+```
+
+Removing todos - find(todoId) with App state arr vs remove() DOM method | same with clearing compeleted - filtering through arr + removing all objs with | find myself using these techniques when returning to vanilla TS/JS (node list of dom els, array from it + destructure all in one)
+
+```jsx
+const handleTodosVisibility = (active?: string, completed?: string) => {
+      const newTodos = [...todos]
+      for (const todo of newTodos) todo.invisible = false
+      ...
+}
+```
+
+Filter system - boolean prop of each todo (invisible) + when true toggled invisible (via Styled Components) | realise for future projects - gaining a diff version of State without modifying original important (put into diff state)
+
+```jsx
+const dragOver: DnD['dragOver'] = (e) => {
+   const id = e.dataTransfer.getData('todo-id')
+   ...
+}
+```
+
+Drag + drop - appends as last child when drag anywhere (even over same el)
+Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?) | vanilla JS tutorial
 
 ### Continued development
 
@@ -88,34 +139,3 @@ Organising components folder more (sub-folders)
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
 -  Linkedin - [Joshua Jameson-Wallis]()
-
-###### TODO
-
-HTML:
-
-CSS:
-
-JS:
-
-Modelling with obj of info in App state vs directly setting as props in later component (not modifyable - readonly - for filtering logic) | map() over obj + produce component based on it (vs direct properties)
-
-Theme toggle within React + Styled Components - ThemeProvider vs vannila JS | store in local storage (checkbox state vs theme obj itself)
-
-Pseudo els for completed todo checkbox + layering bg imgs
-
-Drag + drop - appends as last child when drag anywhere (even over same el)
-Calculations needed from middle of parent
-
-Removing todos - find(todoId) with App state arr vs remove() DOM method | same with clearing compeleted - filtering through arr + removing all objs with
-
-Filter system - boolean prop of each todo (invisible) + when true toggled invisible (via Styled Components) | realise for future projects - gaining a diff version of State without modifying original important
-
-Layout issue with positioned content overlapping footer txt - max-height + overflow: scroll to fix
-
-Typescript basics - type, interfaces, where to declare return types + params | built in React types | Styled components use | library types (+ importing them)
-
-Testing, testing, testing
-
-Testing, testing, testing
-
-Testing, testing, testing
