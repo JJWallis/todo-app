@@ -121,9 +121,11 @@ Calculations needed from middle of parent | dataTransfer - way of getting info c
 
 ### Continued development
 
-React hooks to re-factor bulky code occuring in smaller starter projects like this (bloated App) | useReducer() + custom hooks + other ways to pass info down excluding Context API
+As I continued to build out each feature, I found my App component was quickly becoming bloated with important fundamental logic which I wasn't able to house anywhere else. I therefore look forward to learning about more advanced React concepts such as custom hooks, which I believe will come into play here so I can extract this logic into its own re-usable component (thus refactoring my parent App).
 
-Filtering logic (achieved stylistically - but more practice with diff versions of state without modifying original) - controlling diff states (don't conflict) - using these on a 'grander' scale to control data/layout visible
+In this project I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property for each TODO, which when toggled to true would render those todos invisible on the page. However, I realise for future project another method might be to create different versions of the parent state, which would then cause the app to respond and display different data based on certain states storing valid data.
+
+Finally,
 
 Organising components folder more (sub-folders) + not mixing into same file | mixing up styled components + rendering them in same file - really bad (styled folder + naming convention)
 
