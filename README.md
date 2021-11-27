@@ -104,8 +104,9 @@ const dragOver: DnD['dragOver'] = (e) => {
 }
 ```
 
-Drag + drop - appends as last child when drag anywhere (even over same el)
-Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?)| saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point
+The final test of this project was to produce a sortable drag & drop list which the user could manually interact with to re-arrange the order of each todo. This was my first introduction to the Drag & Drop API built into JavaScript, which conveniently provides a handful of properties/methods for us to use in order to successfully create this logic. By far the most difficult part of this feature was implementing the logic to calculate the position of the todo being dragged, which would then be used to in accordance with its parent draggable container to append the todo at the desired position.
+
+Calculations needed from middle of parent | saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point
 
 ### Continued development
 
