@@ -95,17 +95,7 @@ const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
 }
 ```
 
-Removing todos - find(todoId) with App state arr vs remove() DOM method | same with clearing compeleted - filtering through arr + removing all objs with | find myself using these techniques when returning to vanilla TS/JS (node list of dom els, array from it + destructure all in one)
-
-```jsx
-const handleTodosVisibility = (active?: string, completed?: string) => {
-      const newTodos = [...todos]
-      for (const todo of newTodos) todo.invisible = false
-      ...
-}
-```
-
-Filter system - boolean prop of each todo (invisible) + when true toggled invisible (via Styled Components) | realise for future projects - gaining a diff version of State without modifying original important (put into diff state)
+The above function showcases classic React logic and a different process required in the framework to achieve functionality which I first learnt about when practicing basic DOM manipulation in vanilla JavaScript. Back then I was able to target the DOM element which the user wanted to manipulate, and then simply execute a `remove()` method on it to completely delete it from the DOM. However, React provides many features that allows us to re-create the same logic in a much more efficient and dynamic manner, yet we are also forced to use these different solutions so as not to incorrectly modify the state in our app.
 
 ```jsx
 const dragOver: DnD['dragOver'] = (e) => {
