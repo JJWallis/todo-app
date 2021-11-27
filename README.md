@@ -70,9 +70,7 @@ const List = styled.ul<ListProps>`
    ....
 ```
 
-Negatively positioned header + main + ftr (todo list in normal flow) - viewport height wasn't responding when todo list itself positioned on top
-
-Layout issue with positioned content overlapping footer txt - max-height + overflow: scroll to fix
+To my suprise I did encounter a number of CSS based issues throughout the development of this project, notably the lack of responsiveness by the body/viewport height when the number of todos increased to a more realistic amount. This was not responding because I was positioning the whole todo list wrapper on top of the body, thus placing it on a higher z-index which wasn't going to affect the lower level of content beneath it. In order to fix this bug, I decided to negatively position the `<header>`, `<main>` and `<footer>` sections, whilst keeping the todo list wrapper in the normal DOM flow to allow the desired responsive behaviour to occur.
 
 ```jsx
 export interface AppState {
