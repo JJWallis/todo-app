@@ -61,7 +61,7 @@ const lightTheme = {
 }
 ```
 
-Styled Components - first project | Theme toggle with ThemeProvider vs vannila JS | store in local storage (checkbox state vs theme obj itself)
+This was my first project using the library Styled Components to control all styling within my application. As shown above, I was able to make use of the built in ThemeProvider (using React's Context API) to model and pass down all my global variables to be used by all my styled components. This made building the light & dark theme feature incredibly simple and convenient, allowing me to focus on pontential other logic involved in the process, such as saving the users theme preference in local storage (via the state of the checkbox).
 
 ```jsx
 const List = styled.ul<ListProps>`
