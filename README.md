@@ -95,7 +95,7 @@ const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
 }
 ```
 
-The above function showcases classic React logic and a different process required in the framework to achieve functionality which I first learnt about when practicing basic DOM manipulation in vanilla JavaScript. Back then I was able to target the DOM element which the user wanted to manipulate, and then simply execute a `remove()` method on it to completely delete it from the DOM. However, React provides many features that allows us to re-create the same logic in a much more efficient and dynamic manner, yet we are also forced to use these different solutions so as not to incorrectly modify the state in our app.
+The above function showcases classic React logic and a different process required in the framework to achieve this kind of functionality. This is something which I first learnt about when practicing basic DOM manipulation in vanilla JavaScript, but back then I was able to target the DOM element which the user wanted to manipulate, and then simply execute a `remove()` method on it to completely delete it from the DOM. However, React provides many features that allows us to re-create the same logic in a much more efficient and dynamic manner, yet we are also forced to use these different solutions so as not to incorrectly modify the state in our app.
 
 ```jsx
 const dragOver: DnD['dragOver'] = (e) => {
