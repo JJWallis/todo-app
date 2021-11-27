@@ -129,7 +129,7 @@ Organising components folder more (sub-folders) + not mixing into same file | mi
 
 ### Useful resources
 
--  [Web Dev Simplified - Learn React in 30 Minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY&t=1336s&ab_channel=WebDevSimplified) - Kyles yt vid (helping with toggling a todo completed)
+-  [Web Dev Simplified - Learn React in 30 Minutes](https://www.youtube.com/watch?v=hQAHSlTtcmY&t=1336s&ab_channel=WebDevSimplified) - Kyle's tutorial helped me tremendously (helping with toggling a todo completed)
 
 -  [Traversy Media - Styled Components Crash Course](https://www.youtube.com/watch?v=02zO0hZmwnw&t=945s&ab_channel=TraversyMedia) - structuring styled + logic-based components | naming conventions + ThemeProvider structure (nesting objs within parent to hold shared styles)
 
