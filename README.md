@@ -61,7 +61,7 @@ const lightTheme = {
 }
 ```
 
-Styled Components - first project | Theme toggle with ThemeProvider vs vannila JS | store in local storage (checkbox state vs theme obj itself) | mixing up styled components + rendering them in same file - really bad (styled folder + naming convention)
+Styled Components - first project | Theme toggle with ThemeProvider vs vannila JS | store in local storage (checkbox state vs theme obj itself)
 
 ```jsx
 const List = styled.ul<ListProps>`
@@ -117,15 +117,15 @@ const dragOver: DnD['dragOver'] = (e) => {
 ```
 
 Drag + drop - appends as last child when drag anywhere (even over same el)
-Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?) | vanilla JS tutorial
+Calculations needed from middle of parent | dataTransfer - way of getting info cross component (use refs later?) | vanilla JS tutorial - React conversions needed
 
 ### Continued development
 
-react hooks to re-factor bulky code occuring in smaller starter projects like this | useReducer() + custom hooks + other ways to pass info down excluding Context API
+React hooks to re-factor bulky code occuring in smaller starter projects like this (bloated App) | useReducer() + custom hooks + other ways to pass info down excluding Context API
 
-filtering logic (achieved stylistically - but more practice with diff versions of state without modifying original)
+Filtering logic (achieved stylistically - but more practice with diff versions of state without modifying original) - controlling diff states (don't conflict) - using these on a 'grander' scale to control data/layout visible
 
-Organising components folder more (sub-folders)
+Organising components folder more (sub-folders) + not mixing into same file | mixing up styled components + rendering them in same file - really bad (styled folder + naming convention)
 
 ### Useful resources
 
