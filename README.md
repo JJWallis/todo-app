@@ -125,7 +125,7 @@ As I continued to build out each feature, I found my App component was quickly b
 
 In this project I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property for each TODO, which when toggled to true would render those todos invisible on the page. However, I realise for future project another method might be to create different versions of the parent state, which would then cause the app to respond and display different data based on certain states storing valid data.
 
-Finally, I decided to experiment with the different possibilities available through Styled Components, but in the process ended up mixing multiple styled components with their render function in the same file. Although interesting to see how this was possible, it made searching for the desired component very cumbersome as they were often stored within other files that were not appropriately named.
+Finally, I decided to experiment with the different possibilities available through Styled Components, but in the process ended up mixing multiple styled components with their render function in the same file. Although interesting to see how this was possible, it made searching for the desired component very cumbersome as they were often stored within other files that were not appropriately named. In the future I plan to organise all my components much better by separating styled components with non-styled components, using sub-folders to make searching for the desired file much more convenient.
 
 ### Useful resources
 
