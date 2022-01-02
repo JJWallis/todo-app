@@ -103,13 +103,13 @@ const dragOver: DnD['dragOver'] = (e) => {
 }
 ```
 
-The final test of this project was to produce a sortable drag & drop list which the user could manually interact with to re-arrange the order of each todo. This was my first introduction to the Drag & Drop API built into JavaScript, which conveniently provides a handful of properties and methods for us to use in order to successfully create this logic. By far the most difficult part of this feature was implementing the logic to calculate the position of the todo being dragged, which would then be used to in accordance with its parent draggable container to append the todo at the desired position.
+The final test of this project was to produce a sortable drag & drop list which the user could manually interact with to re-arrange the order of each todo. This was my first introduction to the Drag & Drop API built into JavaScript, which conveniently provides a handful of properties and methods for us to use in order to successfully create this logic.
 
-// Calculations needed from middle of parent | saw YT vid claiming advance algorithm needed - potentially lack of knowledge at this point
+By far the most difficult part of this feature was implementing the logic to calculate the position of the todo being dragged, which would then be used in accordance with its draggable parent container to append the todo at the desired position. I look forward to learning more about advanced data structures and different algorithmic logic I could use to store an updated version of this list in local storage, which would then be updated each time the user rearranges the list's order.
 
 ### Continued development
 
-In this project I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property modelled in each TODO, which when toggled to true would render those todos invisible on the page. However, I realise for future projects another method might be to create different versions of the parent state, which would then cause the app to respond and display different data based on certain states storing valid data.
+In this project, I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property modelled in each TODO, which when truthy would render those todos invisible on the page. However, I realise for future projects another method might be to create different versions of the parent state, which would then cause the app to respond and display different data based on which state held a valid form of data.
 
 Finally, I decided to experiment with the different possibilities available through Styled Components, but in the process ended up mixing multiple styled components with their render function in the same file. Although this was interesting to see the functional possibility, it made searching for the desired component very cumbersome as they were often stored within other files that were not appropriately named. In the future I plan to organise all my components much better by separating styled components with non-styled components, and using sub-folders to make searching for the desired file much more convenient.
 
