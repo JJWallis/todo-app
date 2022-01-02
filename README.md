@@ -43,12 +43,12 @@ Your users should be able to:
 
 ### Built with
 
--  React - JS Library
--  Typescript
--  Mobile-first workflow
--  Styled Components
--  Flexbox
 -  Semantic HTML5 markup
+-  Mobile-first workflow
+-  Flexbox
+-  [React](https://reactjs.org/) - JS library
+-  [Styled Components](https://styled-components.com/) - For styles
+-  Typescript
 
 ### What I learned
 
@@ -56,12 +56,11 @@ Your users should be able to:
 const lightTheme = {
    fontFamily: 'Josefin Sans',
    colorBg: 'hsl(236, 33%, 92%)',
-   colorFg: 'hsl(0, 0%, 98%)',
    ...
 }
 ```
 
-This was my first project using the library Styled Components to control all styling within my application. As shown above, I was able to make use of the built in ThemeProvider (using React's Context API) to model and pass down all my global variables to be used throughtout my app. This made building the light & dark theme feature incredibly convenient, and allowed me to focus on other logic involved in the process, such as saving the users theme preference in local storage via the state of the checkbox.
+This was my first project using the popular library Styled Components to control all styling within my application. As shown above, I was able to make use of the built in ThemeProvider which uses React's Context API, to model and pass down all my global variables to be used throughtout my app. This made building the light and dark theme feature incredibly convenient, and allowed me to focus on other logic involved in the process, such as saving the user's theme preference in local storage by retrieving the previous state of the checkbox.
 
 ```jsx
 const List = styled.ul<ListProps>`
@@ -125,4 +124,4 @@ Finally, I decided to experiment with the different possibilities available thro
 ## Author
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
--  Linkedin - [Joshua Jameson-Wallis]()
+-  Linkedin - [Joshua Jameson-Wallis](https://www.linkedin.com/in/joshua-jameson-wallis/)
