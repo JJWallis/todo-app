@@ -85,7 +85,7 @@ export interface AppState {
 
 This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us needing to run our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent us repeating ourself accross components. This became particulary important since I constantly found myself using data that was already typed in parent componets within their children.
 
-Furthermore, as displayed above I decided to type and model each todo from an object of data about it, which contrasted to my original method of declaring this data via direct props when each todo was rendered, instead storing the Todo component itself within the App's state. I quickly realised these props were not able to be modified when modelling each todo in this way, which was an incredibly important feature to be able to achieve any of the base logic required.
+Furthermore, as displayed above, I decided to type and model each todo from an object of data about it, which contrasted to my original method of declaring this data directly via props when each todo was originally created. As such, I began storing the Todo component itself within the App's state, and was unable to modify the props for each todo since they're readonly.
 
 ```jsx
 const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
@@ -94,7 +94,7 @@ const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
 }
 ```
 
-The above function showcases classic React logic and a different process required in the framework to achieve this kind of functionality. This is something which I first learnt about when practicing basic DOM manipulation in vanilla JavaScript, but back then I was able to target the DOM element which the user wanted to manipulate, and then simply execute a `remove()` method on it to completely delete it from the DOM. However, React provides many features that allows us to re-create the same logic in a much more efficient and dynamic manner, yet we are also forced to use these different solutions so as not to incorrectly modify the state in our app.
+The above function showcases classic React logic and a different process required to achieve this kind of functionality. This is something which I first learnt about when practicing basic DOM manipulation in vanilla JavaScript, but back then I was able to target the DOM element which the user wanted to manipulate, and then simply execute a `remove()` method on it to completely delete it from the DOM.
 
 ```jsx
 const dragOver: DnD['dragOver'] = (e) => {
