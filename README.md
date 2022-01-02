@@ -83,7 +83,7 @@ export interface AppState {
 }
 ```
 
-This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us even needing to execute our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent us repeating ourself accross components. This became particulary important in React, since I constantly found myself using data that was already typed in the App componet within child components.
+This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us needing to run our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent us repeating ourself accross components. This became particulary important since I constantly found myself using data that was already typed in parent componets within their children.
 
 Furthermore, as displayed above I decided to type and model each todo from an object of data about it, which contrasted to my original method of declaring this data via direct props when each todo was rendered, instead storing the Todo component itself within the App's state. I quickly realised these props were not able to be modified when modelling each todo in this way, which was an incredibly important feature to be able to achieve any of the base logic required.
 
