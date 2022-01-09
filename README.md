@@ -60,7 +60,7 @@ const lightTheme = {
 }
 ```
 
-This was my first project using the popular library Styled Components to control all styling within my application. As shown above, I was able to make use of the built in ThemeProvider which uses React's Context API, to model and pass down all my global variables to be used throughtout my app. This made building the light and dark theme feature incredibly convenient, and allowed me to focus on other logic involved in the process, such as saving the user's theme preference in local storage by retrieving the previous state of the checkbox.
+This was my first project using Styled Components to control all styling within my application. I was able to make use of the built in ThemeProvider which uses React's Context API to model and pass down all my global variables to be used throughtout my app. This made building the light and dark theme feature incredibly convenient, allowing me to focus on other logic involved in the process such as saving the user's theme preference in local storage by retrieving the previous state of the checkbox.
 
 ```jsx
 const List = styled.ul<ListProps>`
@@ -69,7 +69,7 @@ const List = styled.ul<ListProps>`
    ....
 ```
 
-To my suprise, I did encounter a number of CSS based issues throughout the development of this project, most notably the lack of responsiveness by the body's height when the number of todos increased to a more realistic amount (five plus). The height wasn't responding because I was positioning the primary wrapper on top of the body, thus placing it on a higher z-index which wasn't going to affect the lower level of content beneath. In order to fix this bug, I decided to negatively position the `<header>`, `<main>` and `<footer>` sections, whilst keeping the todo list wrapper in the normal DOM flow to allow the desired responsive behaviour to occur.
+CSS wise, I encountered an issue with the lack of responsiveness by the body's height when the number of todos increased to a more realistic amount (five plus). The height wasn't responding because I was positioning the primary wrapper on top of the body, thus placing it on a higher z-index which wasn't going to affect the lower level of content beneath. To fix this, I decided to negatively position the `<header>`, `<main>` and `<footer>` sections whilst keeping the todo list wrapper in the normal DOM flow to allow the desired responsive behaviour to occur.
 
 ```jsx
 export interface AppState {
