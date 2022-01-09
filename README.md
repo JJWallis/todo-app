@@ -48,7 +48,7 @@ Your users should be able to:
 -  Flexbox
 -  [React](https://reactjs.org/) - JS library
 -  [Styled Components](https://styled-components.com/) - For styles
--  Typescript
+-  TypeScript
 
 ### What I learned
 
