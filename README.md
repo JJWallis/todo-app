@@ -83,9 +83,9 @@ export interface AppState {
 }
 ```
 
-This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us needing to run our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent us repeating ourself accross components. This became particulary important since I constantly found myself using data that was already typed in parent componets within their children.
+This project was also my first formal introduction to using Typescript, a superset of JavaScript which adds strict types to the language and therefore catches a number of compile time, type-based bugs without us needing to run our code first. I learnt about the differences between types and interfaces, and the different methods we can use to pass those types around to prevent repeating ourselves.
 
-Furthermore, as displayed above, I decided to type and model each todo from an object of data about it, which contrasted to my original method of declaring this data directly via props when each todo was originally created. As such, I began storing the Todo component itself within the App's state, and was unable to modify the props for each todo since they're readonly.
+Furthermore, as displayed above I decided to type and model each todo from an object of data about it, which contrasted to my original method of declaring this data directly via props when each todo was originally created. As such, I began storing the Todo component itself within the App's state, and was unable to modify the props for each todo since they were readonly.
 
 ```jsx
 const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
