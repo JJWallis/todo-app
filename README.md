@@ -109,7 +109,7 @@ By far the most difficult part of this feature was implementing the logic to cal
 
 ### Continued development
 
-In this project, I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property modelled in each TODO, which when truthy would render those todos invisible on the page. However, I realise for future projects another method might be to create different versions of the parent state, which would then cause the app to respond and display different data based on which state held a valid form of data.
+I achieved the filtering logic stylistically through a dynamic 'invisible' boolean property modelled in each TODO, which when truthy would render those todos invisible on the page. However, I realise for future projects another method might be to create different versions of the parent state, which would then cause the app to respond based on which state held a valid form of data.
 
 Finally, I decided to experiment with the different possibilities available to us through Styled Components, but in the process ended up mixing multiple components with their render function in the same file. Although this was interesting to see the functional possibility, it made searching for the desired component very cumbersome as they were often stored within other files that were not appropriately named. In the future, I plan to organise all my components by separating styled and non-styled components, whilst using sub-folders to make searching for the desired file much more convenient.
 
@@ -119,7 +119,7 @@ Finally, I decided to experiment with the different possibilities available to u
 
 -  [Traversy Media - Styled Components Crash Course](https://www.youtube.com/watch?v=02zO0hZmwnw&t=945s&ab_channel=TraversyMedia) - This crash course was my first introduction to using Styled Components, focusing on the basic syntax and major features to begin using the library in current projects.
 
--  [Web Dev Simplified - How to Build Sortable Drag & Drop](https://www.youtube.com/watch?v=jfYWwQrtzzY&t=582s&ab_channel=WebDevSimplified) - This was another great tutorial by Kyle which helped me build the fundamental logic for the drag & drop behviour of the app. This was however originally built in vanilla JavaScript, so I was forced to modify the solution for React which greatly helped in ensuring I understood what was occuring behind the scenes.
+-  [Web Dev Simplified - How to Build Sortable Drag & Drop](https://www.youtube.com/watch?v=jfYWwQrtzzY&t=582s&ab_channel=WebDevSimplified) - This was another great tutorial by Kyle which helped me build the fundamental logic for the drag & drop behviour of the app. This was however originally built in vanilla JavaScript, so I was forced to modify the solution for React which helped in ensuring I understood the behind the scenes logic.
 
 ## Author
 
