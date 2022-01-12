@@ -15,11 +15,6 @@ interface Props {
    }
 }
 
-interface DnD {
-   dragStart: React.DragEventHandler<HTMLLIElement> | undefined
-   dragOver: React.DragEventHandler<HTMLLIElement> | undefined
-}
-
 const Todo: React.FC<Props> = ({ todo }) => {
    const context = useContext(Context)
 
@@ -28,20 +23,12 @@ const Todo: React.FC<Props> = ({ todo }) => {
    const handleRemoveTodo: AppState['handleRemoveTodo'] =
       context.handleRemoveTodo
 
-   const dragStart: DnD['dragStart'] = (e) => {
-      const target = e.currentTarget
-      e.dataTransfer.setData('todo-id', target.id)
-   }
-
    return (
       <ListItem
          todo
          id={uuid()}
-         className="draggable"
          invisible={todo.invisible}
          completed={todo.isCompleted}
-         draggable="true"
-         onDragStart={dragStart}
       >
          <Input
             checkboxTodo
