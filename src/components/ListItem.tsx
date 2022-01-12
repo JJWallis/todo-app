@@ -33,6 +33,11 @@ const ListItem = styled.li<ListItemProps>`
                border-radius: 5px;
             `}
          ${(props) =>
+            props.completed &&
+            css`
+               text-decoration: line-through;
+            `}
+         ${(props) =>
             !props.invisible &&
             css`
                &::before {
