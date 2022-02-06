@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { darkTheme, lightTheme } from './components/styled/Theme'
 import Wrapper from './components/Wrapper'
 import Header from './components/Header'
-import lightBg from './assets/bg-desktop-light.jpg'
-import darkBG from './assets/bg-desktop-dark.jpg'
 import Main from './components/Main'
 import Footer from './components/Footer'
 
@@ -28,30 +27,6 @@ export interface AppState {
    handleCompletedTodo: (id: string) => void
 }
 
-const lightTheme = {
-   fontFamily: 'Josefin Sans',
-   colorBg: 'hsl(236, 33%, 92%)',
-   colorFg: 'hsl(0, 0%, 98%)',
-   fcSummary: 'hsl(233, 11%, 84%)',
-   fcTodo: 'hsl(235, 19%, 35%)',
-   fcTodoFtr: 'hsl(236, 9%, 61%)',
-   hdrBgImg: lightBg,
-   hover: 'hsl(237, 14%, 26%)',
-   active: 'hsl(220, 98%, 61%)',
-}
-
-const darkTheme = {
-   fontFamily: 'Josefin Sans',
-   colorBg: 'hsl(235, 21%, 11%)',
-   colorFg: 'hsl(235, 24%, 19%)',
-   fcSummary: 'hsl(234, 11%, 52%)',
-   fcTodo: 'hsl(234, 39%, 85%)',
-   fcTodoFtr: 'hsl(233, 14%, 35%)',
-   hdrBgImg: darkBG,
-   hover: 'hsl(236, 33%, 92%)',
-   active: 'hsl(220, 98%, 61%)',
-}
-
 const LOCAL_STORAGE_TODOS_KEY = 'todos'
 
 const App: React.FC = () => {
@@ -68,9 +43,6 @@ const App: React.FC = () => {
          localStorage.setItem(LOCAL_STORAGE_TODOS_KEY, JSON.stringify(todos)),
       [todos]
    )
-
-   const determineTheme: AppState['determineTheme'] = (light) =>
-      setActiveTheme(light ? darkTheme : lightTheme)
 
    const addTodo: AppState['addTodo'] = (todo) =>
       setTodos((prevTodos) => [...prevTodos, todo])
@@ -112,26 +84,29 @@ const App: React.FC = () => {
       }
    }
 
+   const determineTheme = (light: typeof lightTheme) =>
+      setActiveTheme(light ? darkTheme : lightTheme)
+
    return (
-      <Context.Provider
-         value={{
-            themeChange: determineTheme,
-            todos,
-            addTodo,
-            handleRemoveTodo,
-            handleCompletedTodo,
-            handleClearCompleted,
-            handleTodosVisibility,
-         }}
-      >
-         <ThemeProvider theme={activeTheme}>
+      <ThemeProvider theme={activeTheme}>
+         <Context.Provider
+            value={{
+               themeChange: determineTheme,
+               todos,
+               addTodo,
+               handleRemoveTodo,
+               handleCompletedTodo,
+               handleClearCompleted,
+               handleTodosVisibility,
+            }}
+         >
             <Wrapper body>
                <Header />
                <Main />
                <Footer />
             </Wrapper>
-         </ThemeProvider>
-      </Context.Provider>
+         </Context.Provider>
+      </ThemeProvider>
    )
 }
 
