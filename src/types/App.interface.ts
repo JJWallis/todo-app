@@ -12,7 +12,6 @@ export interface AppState {
 
 export interface Todo {
    id: string
-   key: string
    value: string
    isCompleted: boolean
    invisible: boolean

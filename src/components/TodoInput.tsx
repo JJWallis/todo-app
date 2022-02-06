@@ -14,7 +14,6 @@ const TodoInput: React.FC = () => {
       if (usrInput)
          addTodo({
             id: uuidv4(),
-            key: uuidv4(),
             value: usrInput,
             isCompleted: false,
             invisible: false,

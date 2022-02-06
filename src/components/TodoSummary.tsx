@@ -1,21 +1,15 @@
 import React, { useContext } from 'react'
 import { AppState, Context } from '../App'
-import styled from 'styled-components'
 import SpaceBetween from './styled/SpaceBetween'
 import Button from './styled/Button'
 import { Todo } from '../types/App.interface'
-
-const ItemsLeft = styled.p`
-   color: ${(props) => props.theme.fcTodoFtr};
-   transition: color 200ms linear;
-   font-size: 0.8rem;
-`
+import { ItemsLeft } from './styled/Paragraph'
 
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
-   const todos: Todo[] = context.todos.filter((todo: any) => !todo.invisible)
-   const handleClearCompleted: AppState['handleClearCompleted'] =
-      context.handleClearCompleted
+   const todos: Todo[] = context.todos.filter((todo: Todo) => !todo.invisible)
+
+   const handleClearCompleted = context.handleClearCompleted
 
    return (
       <SpaceBetween secondary>
