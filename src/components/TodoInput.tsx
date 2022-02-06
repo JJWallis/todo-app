@@ -8,7 +8,7 @@ const TodoInput: React.FC = () => {
    const [usrInput, setUsrInput] = useState('')
    const [newTodo, setNewTodo] = useState(false)
 
-   const addTodo: AppState['addTodo'] = context.addTodo
+   const addTodo = context.addTodo
 
    useEffect(() => {
       if (usrInput)

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AppState, Context } from '../App'
+import { Context } from '../App'
 import SpaceBetween from './styled/SpaceBetween'
 import Button from './styled/Button'
 import { Todo } from '../types/App.interface'

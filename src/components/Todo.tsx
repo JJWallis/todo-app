@@ -1,43 +1,33 @@
 import React, { useContext } from 'react'
-import { AppState, Context } from '../App'
+import { Context } from '../App'
 import { v4 as uuid } from 'uuid'
+import { Todo as TodoProps } from '../types/App.interface'
 import ListItem from './styled/ListItem'
 import Input from './styled/Input'
 import Icon from './styled/Icon'
 import cross from '../assets/icon-cross.svg'
 
 interface Props {
-   todo: {
-      id: string
-      value: string
-      isCompleted: boolean
-      invisible: boolean
-   }
+   todo: TodoProps
 }
 
-const Todo: React.FC<Props> = ({ todo }) => {
+const Todo: React.FC<Props> = ({
+   todo: { invisible, isCompleted, id, value },
+}) => {
    const context = useContext(Context)
-
-   const handleCompletedTodo: AppState['handleCompletedTodo'] =
-      context.handleCompletedTodo
-   const handleRemoveTodo: AppState['handleRemoveTodo'] =
-      context.handleRemoveTodo
+   const handleCompletedTodo = context.handleCompletedTodo
+   const handleRemoveTodo = context.handleRemoveTodo
 
    return (
-      <ListItem
-         todo
-         id={uuid()}
-         invisible={todo.invisible}
-         completed={todo.isCompleted}
-      >
+      <ListItem todo id={uuid()} invisible={invisible} completed={isCompleted}>
          <Input
             checkboxTodo
             type="checkbox"
-            checked={todo.isCompleted}
-            onChange={() => handleCompletedTodo(todo.id)}
+            checked={isCompleted}
+            onChange={() => handleCompletedTodo(id)}
          />
-         {todo.value}
-         <Icon cross src={cross} onClick={() => handleRemoveTodo(todo.id)} />
+         {value}
+         <Icon cross src={cross} onClick={() => handleRemoveTodo(id)} />
       </ListItem>
    )
 }
