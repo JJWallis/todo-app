@@ -10,20 +10,21 @@ import Footer from './components/Footer'
 
 export const Context = React.createContext<any>(null)
 
-const LOCAL_STORAGE_TODOS_KEY = 'todos'
+const reducer = (state: Todo[], action: any): any[] => {
+   return []
+}
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState(lightTheme)
    const [todos, setTodos] = useState<Todo[]>([])
 
    useEffect(() => {
-      const storedTodos = localStorage.getItem(LOCAL_STORAGE_TODOS_KEY)
+      const storedTodos = localStorage.getItem('todos')
       storedTodos && setTodos(JSON.parse(storedTodos))
    }, [])
 
    useEffect(
-      () =>
-         localStorage.setItem(LOCAL_STORAGE_TODOS_KEY, JSON.stringify(todos)),
+      () => localStorage.setItem('todos', JSON.stringify(todos)),
       [todos]
    )
 
