@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
+import { Context } from '../App'
 import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
-import { AppState, Context } from '../App'
 
 interface State {
    visibleTodos: {
@@ -19,8 +19,7 @@ const TodoFooter: React.FC = () => {
    ])
    // model as 1 obj + keys as name keys with boolean values
    const context = useContext(Context)
-   const handleTodosVisibility: AppState['handleTodosVisibility'] =
-      context.handleTodosVisibility
+   const handleTodosVisibility = context.handleTodosVisibility
 
    const handleVisibleTodos = (val: string) => {
       const visible = [...visibleTodos]
