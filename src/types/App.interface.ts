@@ -3,10 +3,7 @@ export interface TodoContext {
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
    handleClearCompleted: () => void
-   handleTodosVisibility: (
-      active?: string | undefined,
-      completed?: string | undefined
-   ) => void
+   handleTodosVisibility: (active?: string, completed?: string) => void
    handleCompletedTodo: (id: string) => void
 }
 

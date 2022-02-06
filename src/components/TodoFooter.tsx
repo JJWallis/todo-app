@@ -4,38 +4,21 @@ import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
 
-interface VisibleTodos {
-   name: string
-   active: boolean
-}
+type VisibleTodos = 'all' | 'active' | 'completed'
 
 const TodoFooter: React.FC = () => {
-   const [visibleTodos, setVisibleTodos] = useState<VisibleTodos[]>([
-      { name: 'all', active: true },
-      { name: 'active', active: false },
-      { name: 'completed', active: false },
-   ])
+   const [visibleTodos, setVisibleTodos] = useState<VisibleTodos>('all')
    const context = useContext(Context)
    const handleTodosVisibility = context.handleTodosVisibility
-
-   const handleVisibleTodos = (val: string) => {
-      const visible = [...visibleTodos]
-      visible.forEach((btn) => (btn.active = false))
-      const desired = visible.find(
-         (btn) => btn.name === val.toLowerCase()
-      ) as VisibleTodos
-      desired.active = true
-      setVisibleTodos(visible)
-   }
 
    return (
       <List footer>
          <ListItem>
             <Button
-               active={visibleTodos[0].active}
-               onClick={(e) => {
+               active={visibleTodos === 'all'}
+               onClick={() => {
                   handleTodosVisibility()
-                  handleVisibleTodos((e.currentTarget.textContent = 'All'))
+                  setVisibleTodos('all')
                }}
             >
                All
@@ -43,10 +26,10 @@ const TodoFooter: React.FC = () => {
          </ListItem>
          <ListItem>
             <Button
-               active={visibleTodos[1].active}
-               onClick={(e) => {
+               active={visibleTodos === 'active'}
+               onClick={() => {
                   handleTodosVisibility('active')
-                  handleVisibleTodos((e.currentTarget.textContent = 'Active'))
+                  setVisibleTodos('active')
                }}
             >
                Active
@@ -54,12 +37,10 @@ const TodoFooter: React.FC = () => {
          </ListItem>
          <ListItem>
             <Button
-               active={visibleTodos[2].active}
-               onClick={(e) => {
+               active={visibleTodos === 'completed'}
+               onClick={() => {
                   handleTodosVisibility(undefined, 'completed')
-                  handleVisibleTodos(
-                     (e.currentTarget.textContent = 'Completed')
-                  )
+                  setVisibleTodos('completed')
                }}
             >
                Completed
