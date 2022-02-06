@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import Tick from '../assets/icon-check.svg'
+import Tick from '../../assets/icon-check.svg'
 
 type ListItemProps = {
    todo?: boolean

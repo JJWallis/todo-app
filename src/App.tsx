@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
-import Wrapper from './components/Wrapper'
-import Header from './components/Header'
+import Wrapper from './components/styled/Wrapper'
+import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 

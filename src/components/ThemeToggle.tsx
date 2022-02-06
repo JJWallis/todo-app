@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { AppState, Context } from '../App'
 import styled from 'styled-components'
-import Input from './Input'
-import Icon from './Icon'
+import Input from './styled/Input'
+import Icon from './styled/Icon'
 import moon from '../assets/icon-moon.svg'
 import sun from '../assets/icon-sun.svg'
 

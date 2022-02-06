@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { AppState, Context } from '../App'
 import { v4 as uuid } from 'uuid'
-import ListItem from './ListItem'
-import Input from './Input'
-import Icon from './Icon'
+import ListItem from './styled/ListItem'
+import Input from './styled/Input'
+import Icon from './styled/Icon'
 import cross from '../assets/icon-cross.svg'
 
 interface Props {

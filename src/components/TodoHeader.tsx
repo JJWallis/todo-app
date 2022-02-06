@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import SpaceBetween from './SpaceBetween'
+import SpaceBetween from './styled/SpaceBetween'
 import ThemeToggle from './ThemeToggle'
 import Arrow from '../assets/icon-arrow.svg'
 

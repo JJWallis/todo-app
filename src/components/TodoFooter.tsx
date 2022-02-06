@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
-import List from './List'
-import Button from './Button'
-import ListItem from './ListItem'
+import List from './styled/List'
+import Button from './styled/Button'
+import ListItem from './styled/ListItem'
 import { AppState, Context } from '../App'
 
 interface State {

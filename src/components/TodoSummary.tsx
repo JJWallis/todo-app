@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { AppState, Context } from '../App'
 import styled from 'styled-components'
-import SpaceBetween from './SpaceBetween'
-import Button from './Button'
+import SpaceBetween from './styled/SpaceBetween'
+import Button from './styled/Button'
 
 const ItemsLeft = styled.p`
    color: ${(props) => props.theme.fcTodoFtr};

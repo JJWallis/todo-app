@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppState, Context } from '../App'
-import Input from './Input'
+import Input from './styled/Input'
 import { v4 as uuidv4 } from 'uuid'
 
 const TodoInput: React.FC = () => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
 import Todo from './Todo'
-import List from './List'
+import List from './styled/List'
 import TodoSummary from './TodoSummary'
 
 const TodoList: React.FC = () => {
