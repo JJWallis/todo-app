@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppState, Context } from '../App'
-import Input from './styled/Input'
 import { v4 as uuidv4 } from 'uuid'
+import Input from './styled/Input'
 
 const TodoInput: React.FC = () => {
    const context: any = useContext(Context)
@@ -21,7 +21,6 @@ const TodoInput: React.FC = () => {
          })
       setUsrInput('')
       setNewTodo(false)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [newTodo])
 
    return (
