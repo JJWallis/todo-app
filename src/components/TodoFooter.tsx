@@ -25,7 +25,7 @@ const TodoFooter: React.FC = () => {
       for (const btn of visible) btn.active = false
       const desired: any = visible.find(
          (btn: any) => btn.name === val.toLowerCase()
-         //access with bracket notation + below code in 1 line
+         // access with bracket notation + below code in 1 line
       )
       desired.active = true
       setVisibleTodos(visible)
