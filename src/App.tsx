@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
-import { Todo } from './types/App.interface'
+import { Todo, TodoActions } from './types/App.interface'
 import { VisibleTodos } from './components/TodoFooter'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
@@ -10,8 +10,9 @@ import Footer from './components/Footer'
 
 export const Context = React.createContext<any>(null)
 
-const reducer = (state: Todo[], action: any): any[] => {
+const reducer = (state: Todo[], action: TodoActions): Todo[] => {
    return []
+   // immer library
 }
 
 const App: React.FC = () => {

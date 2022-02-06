@@ -1,5 +1,5 @@
 import React, { createContext, Dispatch, useReducer } from 'react'
-import { Todo } from '../types/App.interface'
+import { Todo, TodoActions } from '../types/App.interface'
 
 export const TodosContext = createContext<Todo[] | null>(null)
 
@@ -10,7 +10,7 @@ export const TodosProvider = ({
    reducer,
 }: {
    children: React.ReactNode
-   reducer: (state: Todo[], action: any) => any[]
+   reducer: (state: Todo[], action: TodoActions) => Todo[]
 }) => {
    const [todos, dispatch] = useReducer(reducer, [])
 
