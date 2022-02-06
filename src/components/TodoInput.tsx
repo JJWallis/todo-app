@@ -11,7 +11,7 @@ const TodoInput: React.FC = () => {
    const addTodo: AppState['addTodo'] = context.addTodo
 
    useEffect(() => {
-      if (usrInput !== '')
+      if (usrInput)
          addTodo({
             id: uuidv4(),
             key: uuidv4(),
@@ -24,7 +24,7 @@ const TodoInput: React.FC = () => {
    }, [newTodo])
 
    return (
-      <React.Fragment>
+      <>
          <Input
             addTodo
             type="checkbox"
@@ -37,7 +37,7 @@ const TodoInput: React.FC = () => {
             value={usrInput}
             onChange={(e) => setUsrInput(e.target.value)}
          />
-      </React.Fragment>
+      </>
    )
 }
 
