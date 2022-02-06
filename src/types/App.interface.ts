@@ -1,4 +1,4 @@
-export interface AppState {
+export interface TodoContext {
    todos: Todo[]
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
