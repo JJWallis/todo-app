@@ -1,4 +1,5 @@
 import React from 'react'
+import { HandleThemeChange } from './styled/Theme'
 import styled from 'styled-components'
 import Wrapper from './styled/Wrapper'
 import TodoHeader from './TodoHeader'
@@ -12,11 +13,15 @@ const StyledMain = styled.main`
    transition: background-color 200ms linear;
 `
 
-const Main: React.FC = () => {
+interface Props {
+   handleThemeChange: HandleThemeChange
+}
+
+const Main: React.FC<Props> = ({ handleThemeChange }) => {
    return (
       <StyledMain>
          <Wrapper todos>
-            <TodoHeader />
+            <TodoHeader handleThemeChange={handleThemeChange} />
             <TodoInput />
             <TodoList />
             <TodoFooter />

@@ -1,6 +1,8 @@
 import lightBg from '../../assets/bg-desktop-light.jpg'
 import darkBG from '../../assets/bg-desktop-dark.jpg'
 
+export type HandleThemeChange = (light: boolean) => void
+
 export const lightTheme = {
    fontFamily: 'Josefin Sans',
    colorBg: 'hsl(236, 33%, 92%)',

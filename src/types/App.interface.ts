@@ -1,6 +1,5 @@
 export interface AppState {
    todos: Todo[]
-   determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
    handleClearCompleted: () => void

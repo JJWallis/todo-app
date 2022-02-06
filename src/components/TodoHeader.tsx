@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import SpaceBetween from './styled/SpaceBetween'
 import ThemeToggle from './ThemeToggle'
 import Arrow from '../assets/icon-arrow.svg'
+import { HandleThemeChange } from './styled/Theme'
 
 const Title = styled.h1`
    color: white;
@@ -33,11 +34,15 @@ const Title = styled.h1`
    }
 `
 
-const TodoHeader: React.FC = () => {
+interface Props {
+   handleThemeChange: HandleThemeChange
+}
+
+const TodoHeader: React.FC<Props> = ({ handleThemeChange }) => {
    return (
       <SpaceBetween>
          <Title>TODO</Title>
-         <ThemeToggle />
+         <ThemeToggle handleThemeChange={handleThemeChange} />
       </SpaceBetween>
    )
 }

@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { AppState, Context } from '../App'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Input from './styled/Input'
 import Icon from './styled/Icon'
 import moon from '../assets/icon-moon.svg'
 import sun from '../assets/icon-sun.svg'
+import { HandleThemeChange } from './styled/Theme'
 
 const Label = styled.label`
    display: block;
@@ -12,24 +12,25 @@ const Label = styled.label`
    cursor: pointer;
 `
 
+interface Props {
+   handleThemeChange: HandleThemeChange
+}
+
 const LOCAL_STORAGE_THEME_KEY = 'theme'
 
-const ThemeToggle: React.FC = () => {
+const ThemeToggle: React.FC<Props> = ({ handleThemeChange }) => {
    const [theme, setTheme] = useState(false)
-   const context: any = useContext(Context)
-   const determineTheme: AppState['determineTheme'] = context.themeChange
 
    useEffect(() => {
       const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
       storedTheme && setTheme(JSON.parse(storedTheme))
-      determineTheme(theme)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      handleThemeChange(theme)
    }, [])
 
    useEffect(() => {
       localStorage.setItem(LOCAL_STORAGE_THEME_KEY, JSON.stringify(theme))
-      determineTheme(theme)
-   }, [theme, determineTheme])
+      handleThemeChange(theme)
+   }, [theme])
 
    return (
       <Label htmlFor="theme-switch" aria-label="Theme switcher toggle.">

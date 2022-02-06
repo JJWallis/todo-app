@@ -16,7 +16,6 @@ export interface AppState {
       isCompleted: boolean
       invisible: boolean
    }[]
-   determineTheme: (light: boolean) => void
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
    handleClearCompleted: () => void
@@ -84,14 +83,13 @@ const App: React.FC = () => {
       }
    }
 
-   const determineTheme = (light: typeof lightTheme) =>
+   const handleThemeChange = (light: boolean) =>
       setActiveTheme(light ? darkTheme : lightTheme)
 
    return (
       <ThemeProvider theme={activeTheme}>
          <Context.Provider
             value={{
-               themeChange: determineTheme,
                todos,
                addTodo,
                handleRemoveTodo,
@@ -102,7 +100,7 @@ const App: React.FC = () => {
          >
             <Wrapper body>
                <Header />
-               <Main />
+               <Main handleThemeChange={handleThemeChange} />
                <Footer />
             </Wrapper>
          </Context.Provider>
