@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
+import { Todo } from './types/App.interface'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
-import { Todo } from './types/App.interface'
 
 export const Context = React.createContext<any>(null)
-
-export interface AppState {
-   addTodo: (todo: any) => void
-   handleRemoveTodo: (id: string) => void
-   handleClearCompleted: () => void
-   handleTodosVisibility: (
-      active?: string | undefined,
-      completed?: string | undefined
-   ) => void
-   handleCompletedTodo: (id: string) => void
-}
 
 const LOCAL_STORAGE_TODOS_KEY = 'todos'
 
@@ -37,10 +26,9 @@ const App: React.FC = () => {
       [todos]
    )
 
-   const addTodo: AppState['addTodo'] = (todo) =>
-      setTodos((prevTodos) => [...prevTodos, todo])
+   const addTodo = (todo: Todo) => setTodos((prevTodos) => [...prevTodos, todo])
 
-   const handleRemoveTodo: AppState['handleRemoveTodo'] = (id) => {
+   const handleRemoveTodo = (id: string) => {
       const newTodos = todos.filter((todo: any) => todo.id !== id)
       setTodos(newTodos)
    }

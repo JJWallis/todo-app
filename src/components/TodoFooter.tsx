@@ -4,15 +4,13 @@ import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
 
-interface State {
-   visibleTodos: {
-      name: string
-      active: boolean
-   }[]
+interface VisibleTodos {
+   name: string
+   active: boolean
 }
 
 const TodoFooter: React.FC = () => {
-   const [visibleTodos, setVisibleTodos] = useState<State['visibleTodos']>([
+   const [visibleTodos, setVisibleTodos] = useState<VisibleTodos[]>([
       { name: 'all', active: true },
       { name: 'active', active: false },
       { name: 'completed', active: false },
@@ -39,7 +37,6 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos[0].active}
                onClick={(e) => {
-                  // refactor into 1 func above - repeating 3 times (very similar)
                   handleTodosVisibility()
                   handleVisibleTodos((e.currentTarget.textContent = 'All'))
                }}
