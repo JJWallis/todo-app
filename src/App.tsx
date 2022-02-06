@@ -45,7 +45,7 @@ const App: React.FC = () => {
       setTodos(newTodos)
    }
 
-   const handleCompletedTodo: AppState['handleCompletedTodo'] = (id) => {
+   const handleCompletedTodo = (id: string) => {
       const newTodos = [...todos]
       const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
       completedTodo.isCompleted = !completedTodo.isCompleted
