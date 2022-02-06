@@ -3,17 +3,17 @@ import { AppState, Context } from '../App'
 import styled from 'styled-components'
 import SpaceBetween from './styled/SpaceBetween'
 import Button from './styled/Button'
+import { Todo } from '../types/App.interface'
 
 const ItemsLeft = styled.p`
    color: ${(props) => props.theme.fcTodoFtr};
    transition: color 200ms linear;
    font-size: 0.8rem;
 `
+
 const TodoSummary: React.FC = () => {
    const context: any = useContext(Context)
-   const todos: AppState['todos'] = context.todos.filter(
-      (todo: any) => !todo.invisible
-   )
+   const todos: Todo[] = context.todos.filter((todo: any) => !todo.invisible)
    const handleClearCompleted: AppState['handleClearCompleted'] =
       context.handleClearCompleted
 

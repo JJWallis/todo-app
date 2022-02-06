@@ -5,17 +5,11 @@ import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
+import { Todo } from './types/App.interface'
 
 export const Context = React.createContext<any>(null)
 
 export interface AppState {
-   todos: {
-      id: string
-      key: string
-      value: string
-      isCompleted: boolean
-      invisible: boolean
-   }[]
    addTodo: (todo: any) => void
    handleRemoveTodo: (id: string) => void
    handleClearCompleted: () => void
@@ -30,7 +24,7 @@ const LOCAL_STORAGE_TODOS_KEY = 'todos'
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState(lightTheme)
-   const [todos, setTodos] = useState<AppState['todos']>([])
+   const [todos, setTodos] = useState<Todo[]>([])
 
    useEffect(() => {
       const storedTodos = localStorage.getItem(LOCAL_STORAGE_TODOS_KEY)
