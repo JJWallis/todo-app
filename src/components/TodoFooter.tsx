@@ -4,7 +4,7 @@ import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
 
-type VisibleTodos = 'all' | 'active' | 'completed'
+export type VisibleTodos = 'all' | 'active' | 'completed'
 
 const TodoFooter: React.FC = () => {
    const [visibleTodos, setVisibleTodos] = useState<VisibleTodos>('all')
@@ -17,7 +17,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos === 'all'}
                onClick={() => {
-                  handleTodosVisibility()
+                  handleTodosVisibility('all')
                   setVisibleTodos('all')
                }}
             >
@@ -39,7 +39,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos === 'completed'}
                onClick={() => {
-                  handleTodosVisibility(undefined, 'completed')
+                  handleTodosVisibility('completed')
                   setVisibleTodos('completed')
                }}
             >

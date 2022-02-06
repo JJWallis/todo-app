@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo } from './types/App.interface'
+import { VisibleTodos } from './components/TodoFooter'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
@@ -48,21 +49,30 @@ const App: React.FC = () => {
       setTodos(nonCompletedTodos)
    }
 
-   const handleTodosVisibility = (active?: string, completed?: string) => {
-      const newTodos = [...todos]
-      for (const todo of newTodos) todo.invisible = false
+   const handleTodosVisibility = (visible: VisibleTodos) => {
+      const currentTodos = [...todos]
+      let newTodos
+      currentTodos.forEach((todo) => (todo.invisible = false))
 
-      if (active) {
-         for (const todo of newTodos)
-            if (todo.isCompleted) todo.invisible = !todo.invisible
-         setTodos(newTodos)
-      } else if (completed) {
-         for (const todo of newTodos)
-            if (!todo.isCompleted) todo.invisible = !todo.invisible
-         setTodos(newTodos)
-      } else {
-         setTodos(newTodos)
+      if (visible === 'all') {
+         setTodos(currentTodos)
+         return
       }
+
+      if (visible === 'active') {
+         currentTodos.forEach(
+            (todo) => todo.isCompleted && (todo.invisible = true)
+         )
+      }
+
+      if (visible === 'completed') {
+         currentTodos.forEach(
+            (todo) => !todo.isCompleted && (todo.invisible = true)
+         )
+      }
+
+      newTodos = currentTodos
+      setTodos(newTodos)
    }
 
    const handleThemeChange = (light: boolean) =>
