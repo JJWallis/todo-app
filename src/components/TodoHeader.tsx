@@ -1,8 +1,8 @@
 import React from 'react'
 import { HandleThemeChange } from './styled/Theme'
+import { Title } from './styled/Title'
 import SpaceBetween from './styled/SpaceBetween'
 import ThemeToggle from './ThemeToggle'
-import { Title } from './styled/Title'
 
 interface Props {
    handleThemeChange: HandleThemeChange

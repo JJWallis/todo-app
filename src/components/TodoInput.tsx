@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { AppState, Context } from '../App'
+import { Context } from '../App'
 import { v4 as uuidv4 } from 'uuid'
 import Input from './styled/Input'
 

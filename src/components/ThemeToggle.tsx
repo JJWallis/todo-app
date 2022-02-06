@@ -1,16 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import styled from 'styled-components'
+import { HandleThemeChange } from './styled/Theme'
+import { Label } from './styled/Label'
 import Input from './styled/Input'
 import Icon from './styled/Icon'
 import moon from '../assets/icon-moon.svg'
 import sun from '../assets/icon-sun.svg'
-import { HandleThemeChange } from './styled/Theme'
-
-const Label = styled.label`
-   display: block;
-   position: relative;
-   cursor: pointer;
-`
 
 interface Props {
    handleThemeChange: HandleThemeChange
