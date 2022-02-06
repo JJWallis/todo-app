@@ -30,49 +30,35 @@ const App: React.FC = () => {
    const addTodo = (todo: Todo) => setTodos((prevTodos) => [...prevTodos, todo])
 
    const handleRemoveTodo = (id: string) => {
-      const newTodos = todos.filter((todo: any) => todo.id !== id)
+      const newTodos = todos.filter((todo) => todo.id !== id)
       setTodos(newTodos)
    }
 
    const handleCompletedTodo = (id: string) => {
       const newTodos = [...todos]
-      const completedTodo: any = newTodos.find((todo: any) => todo.id === id)
+      const completedTodo = newTodos.find((todo) => todo.id === id) as Todo
       completedTodo.isCompleted = !completedTodo.isCompleted
       setTodos(newTodos)
    }
 
    const handleClearCompleted = () => {
       const newTodos = [...todos]
-      const nonCompletedTodos = newTodos.filter(
-         (todo: any) => !todo.isCompleted
-      )
+      const nonCompletedTodos = newTodos.filter((todo) => !todo.isCompleted)
       setTodos(nonCompletedTodos)
    }
 
    const handleTodosVisibility = (visible: VisibleTodos) => {
       const currentTodos = [...todos]
-      let newTodos
+      const isActive = visible === 'active'
       currentTodos.forEach((todo) => (todo.invisible = false))
-
       if (visible === 'all') {
          setTodos(currentTodos)
          return
       }
-
-      if (visible === 'active') {
-         currentTodos.forEach(
-            (todo) => todo.isCompleted && (todo.invisible = true)
-         )
-      }
-
-      if (visible === 'completed') {
-         currentTodos.forEach(
-            (todo) => !todo.isCompleted && (todo.invisible = true)
-         )
-      }
-
-      newTodos = currentTodos
-      setTodos(newTodos)
+      currentTodos.forEach(
+         (todo) => todo.isCompleted === isActive && (todo.invisible = true)
+      )
+      setTodos(currentTodos)
    }
 
    const handleThemeChange = (light: boolean) =>
