@@ -20,9 +20,10 @@ const reducer: TodosReducer = (state, action) => {
          return state.filter((todo) => todo.id !== action.id)
       }
       case 'TOGGLE_TODO': {
-         const todo = state.find((todo) => todo.id === action.id) as Todo
+         const curr = [...state]
+         const todo = curr.find((todo) => todo.id === action.id) as Todo
          todo.isCompleted = !todo.isCompleted
-         return [...state]
+         return [...curr]
       }
       case 'CLEAR_COMPLETED': {
          return state.filter((todo) => !todo.isCompleted)
@@ -37,7 +38,7 @@ const reducer: TodosReducer = (state, action) => {
          return state
       }
       default: {
-         throw new Error(`Unknow action type`)
+         throw new Error(`Unknow todo action type`)
       }
    }
 }
