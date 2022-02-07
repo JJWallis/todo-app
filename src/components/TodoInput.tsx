@@ -1,25 +1,27 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Context } from '../App'
+import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import { v4 as uuidv4 } from 'uuid'
 import Input from './styled/Input'
 
 const TodoInput: React.FC = () => {
-   const context: any = useContext(Context)
+   const dispatch = useTodosDispatch()
    const [usrInput, setUsrInput] = useState('')
    const [newTodo, setNewTodo] = useState(false)
 
-   const addTodo = context.addTodo
-
    useEffect(() => {
-      if (usrInput)
-         addTodo({
-            id: uuidv4(),
-            value: usrInput,
-            isCompleted: false,
-            invisible: false,
+      if (usrInput) {
+         dispatch({
+            type: 'ADD_TODO',
+            todo: {
+               id: uuidv4(),
+               value: usrInput,
+               isCompleted: false,
+               invisible: false,
+            },
          })
-      setUsrInput('')
-      setNewTodo(false)
+         setUsrInput('')
+         setNewTodo(false)
+      }
    }, [newTodo])
 
    return (
