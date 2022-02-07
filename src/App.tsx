@@ -23,13 +23,21 @@ const reducer: TodosReducer = (state, action) => {
          const todo = state.find((todo) => todo.id === action.id) as Todo
          todo.isCompleted = !todo.isCompleted
          return state
-         // spread copy?
       }
       case 'CLEAR_COMPLETED': {
          return state.filter((todo) => !todo.isCompleted)
       }
+      case 'TOGGLE_ALL': {
+         const isActive = action.visible === 'active'
+         state.forEach((todo) => (todo.invisible = false))
+         if (action.visible === 'all') return state
+         state.forEach(
+            (todo) => todo.isCompleted === isActive && (todo.invisible = true)
+         )
+         return state
+      }
       default: {
-         throw new Error(`Unhandled action type: ${action.type}`)
+         throw new Error(`Unknow action type`)
       }
    }
 }
