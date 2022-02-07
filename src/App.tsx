@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo, TodoActions } from './types/App.interface'
 import { VisibleTodos } from './components/TodoFooter'
+import { TodosProvider } from './context/TodosContext'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
@@ -69,22 +70,24 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={activeTheme}>
-         <Context.Provider
-            value={{
-               todos,
-               addTodo,
-               handleRemoveTodo,
-               handleCompletedTodo,
-               handleClearCompleted,
-               handleTodosVisibility,
-            }}
-         >
-            <Wrapper body>
-               <Header />
-               <Main handleThemeChange={handleThemeChange} />
-               <Footer />
-            </Wrapper>
-         </Context.Provider>
+         <TodosProvider reducer={reducer}>
+            <Context.Provider
+               value={{
+                  todos,
+                  addTodo,
+                  handleRemoveTodo,
+                  handleCompletedTodo,
+                  handleClearCompleted,
+                  handleTodosVisibility,
+               }}
+            >
+               <Wrapper body>
+                  <Header />
+                  <Main handleThemeChange={handleThemeChange} />
+                  <Footer />
+               </Wrapper>
+            </Context.Provider>
+         </TodosProvider>
       </ThemeProvider>
    )
 }
