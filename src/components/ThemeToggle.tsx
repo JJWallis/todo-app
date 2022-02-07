@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { HandleThemeChange } from './styled/Theme'
 import { Label } from './styled/Label'
 import Input from './styled/Input'
@@ -10,19 +10,19 @@ interface Props {
    handleThemeChange: HandleThemeChange
 }
 
-const ThemeToggle: React.FC<Props> = ({ handleThemeChange }) => {
-   const [isDarkTheme, setisDarkTheme] = useState(false)
+function getSavedTheme(): boolean {
+   const storedTheme = localStorage.getItem('theme')
+   return storedTheme ? JSON.parse(storedTheme) : false
+}
 
-   useLayoutEffect(() => {
-      const storedTheme = localStorage.getItem('theme')
-      storedTheme && setisDarkTheme(JSON.parse(storedTheme))
-      handleThemeChange(isDarkTheme)
-   }, [])
+const ThemeToggle: React.FC<Props> = ({ handleThemeChange }) => {
+   const [isDarkTheme, setisDarkTheme] = useState(() => getSavedTheme())
 
    useEffect(() => {
       localStorage.setItem('theme', JSON.stringify(isDarkTheme))
       handleThemeChange(isDarkTheme)
-   }, [isDarkTheme])
+      console.log('firing')
+   }, [isDarkTheme, handleThemeChange])
 
    return (
       <Label htmlFor="theme-switch" aria-label="theme switcher">

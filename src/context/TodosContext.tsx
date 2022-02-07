@@ -19,7 +19,6 @@ export const TodosProvider = ({
    reducer: TodosReducer
 }) => {
    const [todos, dispatch] = useReducer(reducer, [], retrieveTodos)
-   console.log(todos)
 
    useEffect(
       () => localStorage.setItem('todos', JSON.stringify(todos)),
