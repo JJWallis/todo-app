@@ -1,17 +1,16 @@
-import React, { useContext } from 'react'
-import { Context } from '../App'
-import { Todo as todo } from '../types/App.interface'
+import React from 'react'
+import { useTodosContext } from '../hooks/useTodosContext'
 import { v4 as uuidv4 } from 'uuid'
 import Todo from './Todo'
 import List from './styled/List'
 import TodoSummary from './TodoSummary'
 
 const TodoList: React.FC = () => {
-   const context = useContext<any>(Context)
+   const todos = useTodosContext()
    return (
       <>
          <List>
-            {context.todos.map((todo: todo) => (
+            {todos.map((todo) => (
                <Todo key={uuidv4()} todo={todo} />
             ))}
          </List>
