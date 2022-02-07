@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import { Context } from '../App'
+import React from 'react'
 import { v4 as uuid } from 'uuid'
 import { Todo as TodoProps } from '../types/App.interface'
+import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import ListItem from './styled/ListItem'
 import Input from './styled/Input'
 import Icon from './styled/Icon'
@@ -14,9 +14,7 @@ interface Props {
 const Todo: React.FC<Props> = ({
    todo: { invisible, isCompleted, id, value },
 }) => {
-   const context = useContext(Context)
-   const handleCompletedTodo = context.handleCompletedTodo
-   const handleRemoveTodo = context.handleRemoveTodo
+   const dispatch = useTodosDispatch()
 
    return (
       <ListItem todo id={uuid()} invisible={invisible} completed={isCompleted}>
@@ -24,10 +22,15 @@ const Todo: React.FC<Props> = ({
             checkboxTodo
             type="checkbox"
             checked={isCompleted}
-            onChange={() => handleCompletedTodo(id)}
+            onChange={() => dispatch({ type: 'TOGGLE_TODO', id })}
          />
          {value}
-         <Icon cross src={cross} onClick={() => handleRemoveTodo(id)} />
+         <Icon
+            cross
+            src={cross}
+            onClick={() => dispatch({ type: 'REMOVE_TODO', id })}
+            aria-label="remove todo"
+         />
       </ListItem>
    )
 }
