@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
-import { Todo, TodoActions } from './types/App.interface'
+import { Todo } from './types/App.interface'
 import { VisibleTodos } from './components/TodoFooter'
 import { TodosProvider, TodosReducer } from './context/TodosContext'
 import Wrapper from './components/styled/Wrapper'
@@ -15,11 +15,9 @@ const reducer: TodosReducer = (state, action) => {
    switch (action.type) {
       case 'ADD_TODO': {
          return [...state, action.todo]
-         break
       }
       default: {
          throw new Error(`Unhandled action type: ${action.type}`)
-         break
       }
    }
 }
