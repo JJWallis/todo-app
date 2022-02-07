@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { v4 as uuid } from 'uuid'
 import { Todo as TodoProps } from '../types/App.interface'
 import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import ListItem from './styled/ListItem'
@@ -9,15 +8,22 @@ import cross from '../assets/icon-cross.svg'
 
 interface Props {
    todo: TodoProps
+   idx: number
 }
 
 const Todo: React.FC<Props> = ({
    todo: { invisible, isCompleted, id, value },
+   idx,
 }) => {
    const dispatch = useTodosDispatch()
 
    return (
-      <ListItem todo id={uuid()} invisible={invisible} completed={isCompleted}>
+      <ListItem
+         todo
+         id={String(idx)}
+         invisible={invisible}
+         completed={isCompleted}
+      >
          <Input
             checkboxTodo
             type="checkbox"
