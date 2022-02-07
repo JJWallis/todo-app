@@ -30,11 +30,11 @@ const reducer: TodosReducer = (state, action) => {
       case 'TOGGLE_ALL': {
          const isActive = action.visible === 'active'
          state.forEach((todo) => (todo.invisible = false))
-         if (action.visible === 'all') return state
+         if (action.visible === 'all') return [...state]
          state.forEach(
             (todo) => todo.isCompleted === isActive && (todo.invisible = true)
          )
-         return state
+         return [...state]
       }
       default: {
          throw new Error(`Unknow todo action type`)
