@@ -5,8 +5,7 @@ export interface Todo {
    invisible: boolean
 }
 
-export type TodoActions =
-   | {
-        type: 'ADD_TODO'
-     }
-   | {}
+export type TodoActions = {
+   type: 'ADD_TODO'
+   todo: Todo
+}

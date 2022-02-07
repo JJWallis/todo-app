@@ -12,7 +12,16 @@ import Footer from './components/Footer'
 export const Context = React.createContext<any>(null)
 
 const reducer: TodosReducer = (state, action) => {
-   return []
+   switch (action.type) {
+      case 'ADD_TODO': {
+         return [...state, action.todo]
+         break
+      }
+      default: {
+         throw new Error(`Unhandled action type: ${action.type}`)
+         break
+      }
+   }
 }
 
 // immer library
