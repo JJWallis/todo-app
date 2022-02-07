@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import { v4 as uuidv4 } from 'uuid'
 import Input from './styled/Input'
