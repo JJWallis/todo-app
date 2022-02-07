@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { Context } from '../App'
+import React, { useState } from 'react'
+import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
@@ -8,8 +8,7 @@ export type VisibleTodos = 'all' | 'active' | 'completed'
 
 const TodoFooter: React.FC = () => {
    const [visibleTodos, setVisibleTodos] = useState<VisibleTodos>('all')
-   const context = useContext(Context)
-   const handleTodosVisibility = context.handleTodosVisibility
+   const dispatch = useTodosDispatch()
 
    return (
       <List footer>
@@ -17,7 +16,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos === 'all'}
                onClick={() => {
-                  handleTodosVisibility('all')
+                  dispatch({ type: 'TOGGLE_ALL', visible: 'all' })
                   setVisibleTodos('all')
                }}
             >
@@ -28,7 +27,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos === 'active'}
                onClick={() => {
-                  handleTodosVisibility('active')
+                  dispatch({ type: 'TOGGLE_ALL', visible: 'active' })
                   setVisibleTodos('active')
                }}
             >
@@ -39,7 +38,7 @@ const TodoFooter: React.FC = () => {
             <Button
                active={visibleTodos === 'completed'}
                onClick={() => {
-                  handleTodosVisibility('completed')
+                  dispatch({ type: 'TOGGLE_ALL', visible: 'completed' })
                   setVisibleTodos('completed')
                }}
             >
