@@ -13,9 +13,10 @@ export const Context = React.createContext<any>(null)
 
 const reducer: TodosReducer = (state, action) => {
    return []
-   // immer library
-   // ESLint console warnings
 }
+
+// immer library
+// ESLint console warnings
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState(lightTheme)
