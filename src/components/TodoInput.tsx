@@ -9,7 +9,7 @@ const TodoInput: React.FC = () => {
    const [newTodo, setNewTodo] = useState(false)
 
    useEffect(() => {
-      if (usrInput) {
+      if (usrInput && newTodo) {
          dispatch({
             type: 'ADD_TODO',
             todo: {
@@ -22,7 +22,7 @@ const TodoInput: React.FC = () => {
          setUsrInput('')
          setNewTodo(false)
       }
-   }, [newTodo])
+   }, [newTodo, dispatch, usrInput])
 
    return (
       <>

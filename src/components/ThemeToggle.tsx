@@ -21,7 +21,6 @@ const ThemeToggle: React.FC<Props> = ({ handleThemeChange }) => {
    useEffect(() => {
       localStorage.setItem('theme', JSON.stringify(isDarkTheme))
       handleThemeChange(isDarkTheme)
-      console.log('firing')
    }, [isDarkTheme, handleThemeChange])
 
    return (
