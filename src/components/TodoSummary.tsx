@@ -1,23 +1,25 @@
-import React, { useContext } from 'react'
-import { Context } from '../App'
+import React from 'react'
+import { useTodosContext } from '../hooks/useTodosContext'
+import { useTodosDispatch } from '../hooks/useTodosDispatch'
+import { ItemsLeft } from './styled/Paragraph'
 import SpaceBetween from './styled/SpaceBetween'
 import Button from './styled/Button'
-import { Todo } from '../types/App.interface'
-import { ItemsLeft } from './styled/Paragraph'
 
 const TodoSummary: React.FC = () => {
-   const context: any = useContext(Context)
-   const todos: Todo[] = context.todos.filter((todo: Todo) => !todo.invisible)
-
-   const handleClearCompleted = context.handleClearCompleted
+   const todos = useTodosContext()
+   const dispatch = useTodosDispatch()
+   const visibleTodos = todos.filter((todo) => !todo.invisible)
 
    return (
       <SpaceBetween secondary>
          <ItemsLeft>
-            {todos.length}
-            {todos.length === 1 ? ' item' : ' items'} left
+            {visibleTodos.length}
+            {visibleTodos.length === 1 ? ' item' : ' items'} left
          </ItemsLeft>
-         <Button summary="true" onClick={handleClearCompleted}>
+         <Button
+            summary="true"
+            onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}
+         >
             Clear Completed
          </Button>
       </SpaceBetween>
