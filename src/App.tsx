@@ -20,10 +20,9 @@ const reducer: TodosReducer = (state, action) => {
          return state.filter((todo) => todo.id !== action.id)
       }
       case 'TOGGLE_TODO': {
-         const newTodos = [...state]
-         const todo = newTodos.find((todo) => todo.id === action.id) as Todo
-         todo.isCompleted = !todo.isCompleted
-         return newTodos
+         const todo = state.find((todo) => todo.id === action.id) as Todo
+         todo.isCompleted = action.completed
+         return [...state]
       }
       case 'CLEAR_COMPLETED': {
          return state.filter((todo) => !todo.isCompleted)
@@ -45,12 +44,6 @@ const reducer: TodosReducer = (state, action) => {
 
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState(lightTheme)
-
-   // const handleClearCompleted = () => {
-   //    const newTodos = [...todos]
-   //    const nonCompletedTodos = newTodos.filter((todo) => !todo.isCompleted)
-   //    setTodos(nonCompletedTodos)
-   // }
 
    // const handleTodosVisibility = (visible: VisibleTodos) => {
    //    const currentTodos = [...todos]

@@ -27,8 +27,10 @@ export const TodosProvider = ({
    )
 
    return (
-      <DispatchContext.Provider value={dispatch}>
-         <TodosContext.Provider value={todos}>{children}</TodosContext.Provider>
-      </DispatchContext.Provider>
+      <TodosContext.Provider value={todos}>
+         <DispatchContext.Provider value={dispatch}>
+            {children}
+         </DispatchContext.Provider>
+      </TodosContext.Provider>
    )
 }

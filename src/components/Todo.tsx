@@ -24,7 +24,14 @@ const Todo: React.FC<Props> = ({ id, invisible, isCompleted, value }, idx) => {
             checkboxTodo
             type="checkbox"
             checked={isCompleted}
-            onChange={() => dispatch({ type: 'TOGGLE_TODO', id })}
+            onChange={(e) =>
+               dispatch({
+                  type: 'TOGGLE_TODO',
+                  id: id,
+                  completed: e.currentTarget.checked,
+               })
+            }
+            aria-label="toggle todo"
          />
          {value}
          <Icon

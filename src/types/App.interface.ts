@@ -19,6 +19,7 @@ export type TodoActions =
    | {
         type: 'TOGGLE_TODO'
         id: string
+        completed: boolean
      }
    | {
         type: 'CLEAR_COMPLETED'
