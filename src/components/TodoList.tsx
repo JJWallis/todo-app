@@ -11,7 +11,7 @@ const TodoList: React.FC = () => {
       <>
          <List>
             {todos.map((todo, idx) => (
-               <Todo key={idx} todo={todo} idx={idx} />
+               <Todo key={idx} idx={idx} {...todo} />
             ))}
          </List>
          <TodoSummary />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Todo as TodoProps } from '../types/App.interface'
 import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import ListItem from './styled/ListItem'
@@ -6,15 +6,11 @@ import Input from './styled/Input'
 import Icon from './styled/Icon'
 import cross from '../assets/icon-cross.svg'
 
-interface Props {
-   todo: TodoProps
+interface Props extends TodoProps {
    idx: number
 }
 
-const Todo: React.FC<Props> = ({
-   todo: { invisible, isCompleted, id, value },
-   idx,
-}) => {
+const Todo: React.FC<Props> = ({ id, invisible, isCompleted, value }, idx) => {
    const dispatch = useTodosDispatch()
 
    return (
