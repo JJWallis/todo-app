@@ -13,6 +13,7 @@ export const Context = React.createContext<any>(null)
 const reducer = (state: Todo[], action: TodoActions): Todo[] => {
    return []
    // immer library
+   // ESLint console warnings
 }
 
 const App: React.FC = () => {
