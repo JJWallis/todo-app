@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo, TodoActions } from './types/App.interface'
 import { VisibleTodos } from './components/TodoFooter'
-import { TodosProvider } from './context/TodosContext'
+import { TodosProvider, TodosReducer } from './context/TodosContext'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 
 export const Context = React.createContext<any>(null)
 
-const reducer = (state: Todo[], action: TodoActions): Todo[] => {
+const reducer: TodosReducer = (state, action) => {
    return []
    // immer library
    // ESLint console warnings
