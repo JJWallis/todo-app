@@ -27,17 +27,3 @@ export type TodoActions =
         type: 'TOGGLE_ALL'
         visible: VisibleTodos
      }
-
-// const handleTodosVisibility = (visible: VisibleTodos) => {
-//    const currentTodos = [...todos]
-//    const isActive = visible === 'active'
-//    currentTodos.forEach((todo) => (todo.invisible = false))
-//    if (visible === 'all') {
-//       setTodos(currentTodos)
-//       return
-//    }
-//    currentTodos.forEach(
-//       (todo) => todo.isCompleted === isActive && (todo.invisible = true)
-//    )
-//    setTodos(currentTodos)
-// }

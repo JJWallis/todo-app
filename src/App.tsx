@@ -16,6 +16,18 @@ const reducer: TodosReducer = (state, action) => {
       case 'ADD_TODO': {
          return [...state, action.todo]
       }
+      case 'REMOVE_TODO': {
+         return state.filter((todo) => todo.id !== action.id)
+      }
+      case 'TOGGLE_TODO': {
+         const todo = state.find((todo) => todo.id === action.id) as Todo
+         todo.isCompleted = !todo.isCompleted
+         return state
+         // spread copy?
+      }
+      case 'CLEAR_COMPLETED': {
+         return state.filter((todo) => !todo.isCompleted)
+      }
       default: {
          throw new Error(`Unhandled action type: ${action.type}`)
       }
