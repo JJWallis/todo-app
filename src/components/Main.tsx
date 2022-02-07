@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import { HandleThemeChange } from './styled/Theme'
 import StyledMain from './styled/StyledMain'
 import Wrapper from './styled/Wrapper'

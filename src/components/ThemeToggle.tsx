@@ -10,19 +10,17 @@ interface Props {
    handleThemeChange: HandleThemeChange
 }
 
-const LOCAL_STORAGE_THEME_KEY = 'theme'
-
 const ThemeToggle: React.FC<Props> = ({ handleThemeChange }) => {
    const [isDarkTheme, setisDarkTheme] = useState(false)
 
    useLayoutEffect(() => {
-      const storedTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
+      const storedTheme = localStorage.getItem('theme')
       storedTheme && setisDarkTheme(JSON.parse(storedTheme))
       handleThemeChange(isDarkTheme)
    }, [])
 
    useEffect(() => {
-      localStorage.setItem(LOCAL_STORAGE_THEME_KEY, JSON.stringify(isDarkTheme))
+      localStorage.setItem('theme', JSON.stringify(isDarkTheme))
       handleThemeChange(isDarkTheme)
    }, [isDarkTheme])
 
