@@ -1,7 +1,8 @@
-import React, { createContext, Dispatch, useEffect, useReducer } from 'react'
+import React, { createContext, Dispatch, useEffect } from 'react'
 import { Todo, TodoActions } from '../types/App.interface'
+import { useImmerReducer } from 'use-immer'
 
-export type TodosReducer = (state: Todo[], action: TodoActions) => Todo[]
+export type TodosReducer = (draft: Todo[], action: TodoActions) => Todo[]
 
 export const TodosContext = createContext<Todo[] | null>(null)
 export const DispatchContext = createContext<Dispatch<TodoActions> | null>(null)
@@ -18,7 +19,7 @@ export const TodosProvider = ({
    children: React.ReactNode
    reducer: TodosReducer
 }) => {
-   const [todos, dispatch] = useReducer(reducer, [], retrieveTodos)
+   const [todos, dispatch] = useImmerReducer(reducer, [], retrieveTodos)
 
    useEffect(
       () => localStorage.setItem('todos', JSON.stringify(todos)),
