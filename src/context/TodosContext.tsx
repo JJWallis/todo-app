@@ -2,7 +2,7 @@ import React, { createContext, Dispatch, useEffect } from 'react'
 import { Todo, TodoActions } from '../types/App.interface'
 import { useImmerReducer } from 'use-immer'
 
-export type TodosReducer = (draft: Todo[], action: TodoActions) => Todo[]
+export type TodosReducer = (draft: Todo[], action: TodoActions) => void
 
 export const TodosContext = createContext<Todo[] | null>(null)
 export const DispatchContext = createContext<Dispatch<TodoActions> | null>(null)

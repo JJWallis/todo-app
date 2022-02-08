@@ -11,7 +11,8 @@ import Footer from './components/Footer'
 const reducer: TodosReducer = (draft, action) => {
    switch (action.type) {
       case 'ADD_TODO': {
-         return [...draft, action.todo]
+         draft.push(action.todo)
+         break
       }
       case 'REMOVE_TODO': {
          return draft.filter((todo) => todo.id !== action.id)
@@ -19,7 +20,7 @@ const reducer: TodosReducer = (draft, action) => {
       case 'TOGGLE_TODO': {
          const todo = draft.find((todo) => todo.id === action.id) as Todo
          todo.isCompleted = action.completed
-         return [...draft]
+         break
       }
       case 'CLEAR_COMPLETED': {
          return draft.filter((todo) => !todo.isCompleted)
@@ -27,11 +28,11 @@ const reducer: TodosReducer = (draft, action) => {
       case 'TOGGLE_ALL': {
          const isActive = action.visible === 'active'
          draft.forEach((todo) => (todo.invisible = false))
-         if (action.visible === 'all') return [...draft]
+         if (action.visible === 'all') break
          draft.forEach(
             (todo) => todo.isCompleted === isActive && (todo.invisible = true)
          )
-         return [...draft]
+         break
       }
       default: {
          throw new Error(`Unknow todo action type`)
