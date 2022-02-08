@@ -47,6 +47,12 @@ const App: React.FC = () => {
       setActiveTheme(light ? darkTheme : lightTheme)
    }, [])
 
+   const throwError = () => {
+      throw new Error('This is a test error')
+   }
+
+   // throwError()
+
    return (
       <ThemeProvider theme={activeTheme}>
          <TodosProvider reducer={reducer}>
