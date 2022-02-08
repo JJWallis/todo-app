@@ -7,11 +7,6 @@ export type TodosReducer = (draft: Todo[], action: TodoActions) => void
 export const TodosContext = createContext<Todo[] | null>(null)
 export const DispatchContext = createContext<Dispatch<TodoActions> | null>(null)
 
-const retrieveTodos = () => {
-   const prevTodos = localStorage.getItem('todos')
-   return prevTodos ? (JSON.parse(prevTodos) as Todo[]) : []
-}
-
 export const TodosProvider = ({
    children,
    reducer,
@@ -26,6 +21,11 @@ export const TodosProvider = ({
       initialState,
       retrieveTodos
    )
+
+   function retrieveTodos() {
+      const prevTodos = localStorage.getItem('todos')
+      return prevTodos ? (JSON.parse(prevTodos) as Todo[]) : initialState
+   }
 
    useEffect(
       () => localStorage.setItem('todos', JSON.stringify(todos)),
