@@ -8,8 +8,6 @@ import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 
-// immer library
-
 const reducer: TodosReducer = (state, action) => {
    switch (action.type) {
       case 'ADD_TODO': {
