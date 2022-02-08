@@ -1,5 +1,4 @@
 import React from 'react'
-import { HandleThemeChange } from './styled/Theme'
 import StyledMain from './styled/StyledMain'
 import Wrapper from './styled/Wrapper'
 import TodoHeader from './TodoHeader'
@@ -7,15 +6,11 @@ import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 import TodoFooter from './TodoFooter'
 
-interface Props {
-   handleThemeChange: HandleThemeChange
-}
-
-const Main: React.FC<Props> = ({ handleThemeChange }) => {
+const Main: React.FC = ({ children }) => {
    return (
       <StyledMain>
          <Wrapper todos>
-            <TodoHeader handleThemeChange={handleThemeChange} />
+            <TodoHeader>{children}</TodoHeader>
             <TodoInput />
             <TodoList />
             <TodoFooter />

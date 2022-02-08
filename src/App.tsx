@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import ThemeToggle from './components/ThemeToggle'
 import { TodosProvider, TodosReducer } from './context/TodosContext'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo } from './types/App.interface'
@@ -60,7 +61,9 @@ const App: React.FC = () => {
             <TodosProvider reducer={reducer} initialState={initialState}>
                <Wrapper body>
                   <Header />
-                  <Main handleThemeChange={handleThemeChange} />
+                  <Main>
+                     <ThemeToggle handleThemeChange={handleThemeChange} />
+                  </Main>
                   <Footer />
                </Wrapper>
             </TodosProvider>
