@@ -22,50 +22,14 @@ const TodoFooter: React.FC = () => {
                      setVisibleTodos(option)
                   }}
                >
-                  All
+                  {option.replace(/^\w/, (c) => c.toUpperCase())}
                </Button>
             </ListItem>
          )
       })
    }
 
-   return (
-      <List footer>
-         <ListItem>
-            <Button
-               active={visibleTodos === 'all'}
-               onClick={() => {
-                  dispatch({ type: 'TOGGLE_ALL', visible: 'all' })
-                  setVisibleTodos('all')
-               }}
-            >
-               All
-            </Button>
-         </ListItem>
-         <ListItem>
-            <Button
-               active={visibleTodos === 'active'}
-               onClick={() => {
-                  dispatch({ type: 'TOGGLE_ALL', visible: 'active' })
-                  setVisibleTodos('active')
-               }}
-            >
-               Active
-            </Button>
-         </ListItem>
-         <ListItem>
-            <Button
-               active={visibleTodos === 'completed'}
-               onClick={() => {
-                  dispatch({ type: 'TOGGLE_ALL', visible: 'completed' })
-                  setVisibleTodos('completed')
-               }}
-            >
-               Completed
-            </Button>
-         </ListItem>
-      </List>
-   )
+   return <List footer>{produceBtns()}</List>
 }
 
 export default TodoFooter
