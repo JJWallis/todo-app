@@ -3,6 +3,7 @@ import { useTodosDispatch } from '../hooks/useTodosDispatch'
 import List from './styled/List'
 import Button from './styled/Button'
 import ListItem from './styled/ListItem'
+import { v4 as uuid } from 'uuid'
 
 export type VisibleTodos = 'all' | 'active' | 'completed'
 
@@ -14,7 +15,7 @@ const TodoFooter: React.FC = () => {
       const options = ['all', 'active', 'completed'] as VisibleTodos[]
       return options.map((option) => {
          return (
-            <ListItem>
+            <ListItem key={uuid()}>
                <Button
                   active={visibleTodos === option}
                   onClick={() => {

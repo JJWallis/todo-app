@@ -9,7 +9,7 @@ import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 
-const reducer: TodosReducer = (draft, action) => {
+export const reducer: TodosReducer = (draft, action) => {
    switch (action.type) {
       case 'ADD_TODO': {
          draft.push(action.todo)
