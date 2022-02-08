@@ -10,6 +10,25 @@ const TodoFooter: React.FC = () => {
    const [visibleTodos, setVisibleTodos] = useState<VisibleTodos>('all')
    const dispatch = useTodosDispatch()
 
+   const produceBtns = () => {
+      const options = ['all', 'active', 'completed'] as VisibleTodos[]
+      return options.map((option) => {
+         return (
+            <ListItem>
+               <Button
+                  active={visibleTodos === option}
+                  onClick={() => {
+                     dispatch({ type: 'TOGGLE_ALL', visible: option })
+                     setVisibleTodos(option)
+                  }}
+               >
+                  All
+               </Button>
+            </ListItem>
+         )
+      })
+   }
+
    return (
       <List footer>
          <ListItem>
