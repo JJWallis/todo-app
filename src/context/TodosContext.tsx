@@ -15,11 +15,17 @@ const retrieveTodos = () => {
 export const TodosProvider = ({
    children,
    reducer,
+   initialState,
 }: {
    children: React.ReactNode
    reducer: TodosReducer
+   initialState: Todo[]
 }) => {
-   const [todos, dispatch] = useImmerReducer(reducer, [], retrieveTodos)
+   const [todos, dispatch] = useImmerReducer(
+      reducer,
+      initialState,
+      retrieveTodos
+   )
 
    useEffect(
       () => localStorage.setItem('todos', JSON.stringify(todos)),

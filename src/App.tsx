@@ -9,6 +9,8 @@ import Header from './components/styled/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 
+const initialState: Todo[] = []
+
 export const reducer: TodosReducer = (draft, action) => {
    switch (action.type) {
       case 'ADD_TODO': {
@@ -55,7 +57,7 @@ const App: React.FC = () => {
    return (
       <ThemeProvider theme={activeTheme}>
          <ErrorBoundary FallbackComponent={FallbackUi}>
-            <TodosProvider reducer={reducer}>
+            <TodosProvider reducer={reducer} initialState={initialState}>
                <Wrapper body>
                   <Header />
                   <Main handleThemeChange={handleThemeChange} />
