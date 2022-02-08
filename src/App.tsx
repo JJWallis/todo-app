@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { TodosProvider, TodosReducer } from './context/TodosContext'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo } from './types/App.interface'
-import { TodosProvider, TodosReducer } from './context/TodosContext'
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import Wrapper from './components/styled/Wrapper'
 import Header from './components/styled/Header'
 import Main from './components/Main'
@@ -47,21 +48,21 @@ const App: React.FC = () => {
       setActiveTheme(light ? darkTheme : lightTheme)
    }, [])
 
-   const throwError = () => {
-      throw new Error('This is a test error')
+   const FallbackUi: React.FC<FallbackProps> = ({ error }) => {
+      return <pre style={{ color: 'red' }}>{error.message}</pre>
    }
-
-   // throwError()
 
    return (
       <ThemeProvider theme={activeTheme}>
-         <TodosProvider reducer={reducer}>
-            <Wrapper body>
-               <Header />
-               <Main handleThemeChange={handleThemeChange} />
-               <Footer />
-            </Wrapper>
-         </TodosProvider>
+         <ErrorBoundary FallbackComponent={FallbackUi}>
+            <TodosProvider reducer={reducer}>
+               <Wrapper body>
+                  <Header />
+                  <Main handleThemeChange={handleThemeChange} />
+                  <Footer />
+               </Wrapper>
+            </TodosProvider>
+         </ErrorBoundary>
       </ThemeProvider>
    )
 }
