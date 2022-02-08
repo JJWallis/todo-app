@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import { Todo } from './types/App.interface'
@@ -9,7 +9,6 @@ import Main from './components/Main'
 import Footer from './components/Footer'
 
 // immer library
-// ESLint console warnings
 
 const reducer: TodosReducer = (state, action) => {
    switch (action.type) {
@@ -45,22 +44,9 @@ const reducer: TodosReducer = (state, action) => {
 const App: React.FC = () => {
    const [activeTheme, setActiveTheme] = useState(lightTheme)
 
-   // const handleTodosVisibility = (visible: VisibleTodos) => {
-   //    const currentTodos = [...todos]
-   //    const isActive = visible === 'active'
-   //    currentTodos.forEach((todo) => (todo.invisible = false))
-   //    if (visible === 'all') {
-   //       setTodos(currentTodos)
-   //       return
-   //    }
-   //    currentTodos.forEach(
-   //       (todo) => todo.isCompleted === isActive && (todo.invisible = true)
-   //    )
-   //    setTodos(currentTodos)
-   // }
-
-   const handleThemeChange = (light: boolean) =>
+   const handleThemeChange = useCallback((light: boolean) => {
       setActiveTheme(light ? darkTheme : lightTheme)
+   }, [])
 
    return (
       <ThemeProvider theme={activeTheme}>
