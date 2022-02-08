@@ -45,7 +45,12 @@ export const reducer: TodosReducer = (draft, action) => {
 }
 
 const App: React.FC = () => {
-   const [activeTheme, setActiveTheme] = useState(lightTheme)
+   const [activeTheme, setActiveTheme] = useState(() =>
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+         ? darkTheme
+         : lightTheme
+   )
 
    const handleThemeChange = useCallback((light: boolean) => {
       setActiveTheme(light ? darkTheme : lightTheme)
