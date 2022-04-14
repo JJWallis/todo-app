@@ -6,9 +6,9 @@ beforeEach(() => {
    cy.visit(URL)
 })
 
-describe('My First Test', () => {
-   it('visits correct page', () => {
-      const activeBtn = cy.contains(/active/gi).click()
-      cy.url().should('include', URL)
+describe('input field', () => {
+   it('updates correctly on user input', () => {
+      cy.contains('TODO')
+      cy.get('.bmEWna').type('Hello').should('have.value', 'Hello')
    })
 })
