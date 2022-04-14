@@ -1,11 +1,14 @@
 /// <reference types="cypress" />
 
+const URL = 'http://localhost:3000'
+
 beforeEach(() => {
-   cy.visit('http://localhost:3000')
+   cy.visit(URL)
 })
 
 describe('My First Test', () => {
    it('visits correct page', () => {
-      const title = cy.contains('TODO')
+      const activeBtn = cy.contains(/active/gi).click()
+      cy.url().should('include', URL)
    })
 })
