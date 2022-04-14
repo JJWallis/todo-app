@@ -1,9 +1,7 @@
 /// <reference types="cypress" />
 
-const URL = 'http://localhost:3000'
-
 beforeEach(() => {
-   cy.visit(URL)
+   cy.visit()
 })
 
 describe('input field', () => {
