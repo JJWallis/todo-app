@@ -1,12 +1,14 @@
 /// <reference types="cypress" />
 
+const URL = 'http://localhost:3000'
+
 beforeEach(() => {
-   cy.visit('/')
+   cy.visit(URL)
 })
 
 describe('input field', () => {
    it('updates correctly on user input', () => {
-      const title = cy.contains('TODO')
+      cy.contains('TODO')
       cy.get('.bmEWna').type('Hello').should('have.value', 'Hello')
    })
 })
