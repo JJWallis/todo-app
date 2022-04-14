@@ -1,5 +1,11 @@
+/// <reference types="cypress" />
+
+// beforeEach(() => {
+//    cy.visit('http://localhost:3000')
+// })
+
 describe('My First Test', () => {
-   it('Does not do much!', () => {
-      expect(true).to.equal(false)
+   it('visits correct page', () => {
+      cy.visit('http://localhost:3000')
    })
 })
